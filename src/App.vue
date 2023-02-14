@@ -4,9 +4,8 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
+  <!-- <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
 
@@ -15,9 +14,36 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
-  </header>
+  </header> -->
+  <div>
+    <!-- nav -->
+    <div class="height100 bgc-609 col-fe">
+      <div class="route-div">
+        <div class="mrgr-10 col-fe strong">壹杯咖啡</div>
+        <RouterLink to="/" class="mrgr-10 col-fe">首页</RouterLink>
+        <RouterLink to="/about" class="mrgr-10 col-fe">产品系列</RouterLink>
+        <RouterLink to="/" class="mrgr-10 col-fe">专属定制</RouterLink>
+        <RouterLink to="/about" class="mrgr-10 col-fe">联系我们</RouterLink>
+        <RouterLink to="/about" class="mrgr-10 col-fe">购物车</RouterLink>
+      </div>
+    </div>
+    <!-- content -->
+    <RouterView />
+    <!-- footer -->
+    <div class="footer pd-30-0">
+      <div>壹杯咖啡</div>
+      <div class="flex jst-c">
+        <div>微博</div>
+        <div class="mrgl-20">微信</div>
+        <div class="mrgl-20">抖音</div>
+      </div>
+      <div>
+        官方邮箱：yibei12345@163.com
+      </div>
+      <div>Copytight @ 2023 壹杯咖啡 ICP12365478</div>
+    </div>
 
-  <RouterView />
+  </div>
 </template>
 
 <style scoped>
@@ -33,9 +59,9 @@ header {
 
 nav {
   width: 100%;
-  font-size: 12px;
+  font-size: 1rem;
   text-align: center;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 
 nav a.router-link-exact-active {
@@ -56,7 +82,7 @@ nav a:first-of-type {
   border: 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1920px) {
   header {
     display: flex;
     place-items: center;
@@ -74,12 +100,56 @@ nav a:first-of-type {
   }
 
   nav {
-    text-align: left;
+    /* text-align: left; */
     margin-left: -1rem;
     font-size: 1rem;
 
     padding: 1rem 0;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
   }
+}
+
+.height100{
+    height: 100px;
+}
+.route-div {
+  text-align: center;
+  height: 100px;
+  line-height: 100px;
+  display: flex;
+  justify-content: center;
+}
+.bgc-609 {
+  background: #60955f;
+}
+.col-fe{
+  color: #fef6f1;
+}
+.bg-fe{
+  background: #fef6f1;
+}
+.mrgr-10{
+  margin-right: 60px;
+  margin-left: 60px;
+}
+.strong{
+  font-weight: bolder;
+}
+.footer{
+  text-align: center;
+  color: #fef6f1;
+  background: #60955f;
+}
+.flex{
+  display: flex;
+}
+.jst-c{
+  justify-content: center;
+}
+.mrgl-20{
+  margin-left: 20px;
+}
+.pd-30-0{
+  padding: 30px 0;
 }
 </style>

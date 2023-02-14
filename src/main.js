@@ -11,7 +11,7 @@ const app = createApp(App)
 
 // const app = Vue.createApp(App)
 app.use(VueAxios, axios)
-app.config.globalProperties.$http=axios;
+// app.config.globalProperties.$http=axios;
 
 app.use(router)
 

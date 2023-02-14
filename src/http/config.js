@@ -4,7 +4,7 @@
 export default {
     method: 'get',
     // 基础url前缀
-    baseUrl: process.env.BASE_URL,
+    baseUrl: '/dev-api',
     // 请求头信息
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'
