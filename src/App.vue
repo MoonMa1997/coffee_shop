@@ -22,7 +22,7 @@ import HelloWorld from './components/HelloWorld.vue'
         <div class="mrgr-10 col-fe strong">壹杯咖啡</div>
         <RouterLink to="/" class="mrgr-10 col-fe">首页</RouterLink>
         <RouterLink to="/about" class="mrgr-10 col-fe">产品系列</RouterLink>
-        <RouterLink to="/" class="mrgr-10 col-fe">专属定制</RouterLink>
+        <RouterLink to="/specialCustom" class="mrgr-10 col-fe">专属定制</RouterLink>
         <RouterLink to="/about" class="mrgr-10 col-fe">联系我们</RouterLink>
         <RouterLink to="/about" class="mrgr-10 col-fe">购物车</RouterLink>
       </div>
