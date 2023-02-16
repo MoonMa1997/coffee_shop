@@ -13,8 +13,8 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/dev-api': {
-          target: 'http://localhost:8088',
+      '/cof': {
+          target: 'http://localhost:8088/',
           pathRewrite: {'^/':''},
       }
     }

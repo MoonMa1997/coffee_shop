@@ -2,12 +2,9 @@ import axios from "../axios";
  
 export const alldata=(data)=>{
   return axios({
-    url: '/register',
-    headers: {
-      isToken: false
-    },
-    method:'post',
-    data: data
+    url: '/system/MedicalRecord/list',
+    method:'get',
+    params: data
   })
 }
  

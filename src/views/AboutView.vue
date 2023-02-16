@@ -16,16 +16,20 @@ export default {
     })
     const methods = {
       requestall(){
+        // const data={
+        //   card: "1",
+        //   code: "",
+        //   confirmPassword: "123456Ma",
+        //   nickname: "2",
+        //   password: "123456Ma",
+        //   phone: "3",
+        //   roleId: "102",
+        //   username: "44",
+        //   uuid: "",
+        // };
         const data={
-          card: "1",
-          code: "",
-          confirmPassword: "123456Ma",
-          nickname: "2",
-          password: "123456Ma",
-          phone: "3",
-          roleId: "102",
-          username: "44",
-          uuid: "",
+          pageNum: 1,
+          pageSize: 10
         };
         alldata(data).then(res => {
           datas.value=res
