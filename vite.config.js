@@ -12,11 +12,11 @@ export default defineConfig({
     }
   },
   server: {
-    proxy: {
-      '/cof': {
-          target: 'http://localhost:8088/',
-          pathRewrite: {'^/':''},
-      }
-    }
+    // proxy: {
+    //   '/': {
+    //       target: 'https://www.baidu.com',
+    //       pathRewrite: {'^/':''},
+    //   }
+    // }
   }
 })

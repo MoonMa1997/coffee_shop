@@ -1,7 +1,7 @@
 import axios from 'axios'
  
 const request = axios.create({
-    baseURL: '/cof',  // 注意！！ 这里是全局统一加上了 '/api' 前缀，也就是说所有接口都会加上'/api'前缀在，页面里面写接口的时候就不要加 '/api'了，否则会出现2个'/api'，类似 '/api/api/user'这样的报错，切记！！！
+    // baseURL: '',  // 注意！！ 这里是全局统一加上了 '/api' 前缀，也就是说所有接口都会加上'/api'前缀在，页面里面写接口的时候就不要加 '/api'了，否则会出现2个'/api'，类似 '/api/api/user'这样的报错，切记！！！
     timeout: 5000 * 10
 })
 // request 请求器
@@ -11,6 +11,7 @@ request.interceptors.request.use(config => {
     if(config && config.headers){
         config.headers['Content-Type'] = 'application/json;charset=utf-8';
     }
+    // config.headers['Authorization'] = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjgxOGYwYjJlLWJiZTItNGZmMS1iNTE2LTk3MTJjYTZhZDg3MCJ9.lMcy_yDwXAeF-ROiQZQyPAujvmDaeltHGsu-xS08t4xzUijFJ7rx1DbYQwubTbS1DKJnPgyk1WXQAtYmKPMRCw' 
     // config.headers['X-isToken'] === false
     // if (getToken() && !isToken) {
     //     config.headers['Authorization'] = 'Bearer ' + getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
