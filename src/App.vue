@@ -15,7 +15,6 @@ import HelloWorld from './components/HelloWorld.vue'
       </nav>
     </div>
   </header> -->
-  <div>
     <!-- nav -->
     <div class="height100 bgc-609 col-fe">
       <div class="route-div">
@@ -43,7 +42,6 @@ import HelloWorld from './components/HelloWorld.vue'
       <div>Copytight @ 2023 壹杯咖啡 ICP12365478</div>
     </div>
 
-  </div>
 </template>
 
 <style scoped>
@@ -136,6 +134,7 @@ nav a:first-of-type {
   font-weight: bolder;
 }
 .footer{
+  width: 100%;
   text-align: center;
   color: #fef6f1;
   background: #60955f;
