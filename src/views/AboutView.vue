@@ -181,14 +181,14 @@
           <div class="intro-img">
           </div>
           <div>
-            <div>美式咖啡</div>
-            <div>简单即是美味，萃取经典浓缩咖啡，以水调和，香气浓郁漫溢，毫升数仅供参考，饮品量以实际为准。</div>
+            <div class="cl-61">美式咖啡</div>
+            <div class="cl-61">简单即是美味，萃取经典浓缩咖啡，以水调和，香气浓郁漫溢，毫升数仅供参考，饮品量以实际为准。</div>
           </div>
         </div>
         <!-- 类型 -->
         <div>
           <div class="flex line-type">
-            <div class="wid-per-5">杯型</div>
+            <div class="wid-per-5 cl-61">杯型</div>
             <div class="flex jtf-bt wid-per-95">
               <div class="bottle-type">小杯 320ml</div>
               <div class="bottle-type">中杯 480ml</div>
@@ -196,7 +196,7 @@
             </div>
           </div>
           <div class="flex line-type">
-            <div class="wid-per-5">甜度</div>
+            <div class="wid-per-5 cl-61">甜度</div>
             <div class="flex jtf-bt wid-per-95">
               <div class="ice-type">无糖</div>
               <div class="ice-type">三分糖</div>
@@ -206,7 +206,7 @@
             </div>
           </div>
           <div class="flex line-type">
-            <div class="wid-per-5">温度</div>
+            <div class="wid-per-5 cl-61">温度</div>
             <div class="flex jtf-bt wid-per-95">
               <div class="ice-type">正常冰</div>
               <div class="ice-type">少冰</div>
@@ -216,7 +216,7 @@
             </div>
           </div>
           <div class="flex line-type">
-            <div class="wid-per-15">添加或更换牛奶</div>
+            <div class="wid-per-15 cl-61">添加或更换牛奶</div>
             <div class="flex jtf-bt wid-per-85">
               <div class="mulk-type">脱脂牛奶</div>
               <div class="mulk-type">全脂牛奶</div>
@@ -287,8 +287,9 @@ export default {
 
 <style scoped>
 .about >>> .el-dialog{
-  background: #caa56a; 
+  background: #997e61; 
   border-radius: 30px;
+  color: #fef6f1;
 }
 .about >>> .el-button{
   color: #d69d39;
@@ -350,7 +351,7 @@ export default {
 .kf-bg{
   width: 160px;
   height: 145px;
-  background: #a1d0a0;
+  background: #60955f;
   border-radius: 20%;
   position: absolute;
   left: 11%;
@@ -378,7 +379,7 @@ export default {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background: #e5b35e;
+  background: #997e61;
   position: absolute;
   bottom: 12%;
   left: 40%;
@@ -488,5 +489,8 @@ export default {
 .footer-dig{
   display: flex;
   justify-content: space-between;
+}
+.cl-61{
+  color: #fef6f1;
 }
 </style>
