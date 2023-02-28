@@ -292,7 +292,7 @@ export default {
   color: #fef6f1;
 }
 .about >>> .el-button{
-  color: #d69d39;
+  color: #997e61;
   background-color:white;
   border: none;
   border-color: white;
@@ -436,7 +436,7 @@ export default {
   line-height: 35px;
   border-radius: 10px;
   background: #fef6f1;
-  color: #d69d39;
+  color: #997e61;
   text-align: center;
   cursor: pointer;
 }
@@ -444,7 +444,7 @@ export default {
   width: 60px;
   height: 30px;
   background: #fef6f1;
-  color: #d69d39;
+  color: #997e61;
   text-align: center;
 }
 .ice-type{
@@ -453,7 +453,7 @@ export default {
   line-height: 35px;
   border-radius: 10px;
   background: #fef6f1;
-  color: #d69d39;
+  color: #997e61;
   text-align: center;
   cursor: pointer;
 }
@@ -463,7 +463,7 @@ export default {
   line-height: 35px;
   border-radius: 10px;
   background: #fef6f1;
-  color: #d69d39;
+  color: #997e61;
   text-align: center;
   cursor: pointer;
 }
