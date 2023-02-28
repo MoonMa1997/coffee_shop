@@ -324,7 +324,7 @@ export default {
   font-weight: 600;
 }
 .ft-xl{
-  color: #bd8422;
+  color: #997e61;
   font-size: larger;
   font-weight: 700;
   padding: 3px;
@@ -412,7 +412,7 @@ export default {
     height: 4px;
     border-radius: 1px;
     -webkit-box-shadow: inset 0 0 0px rgba(0,0,0,.3);
-    background-color: rgb(240 219 175);
+    background-color: #997e61;
 }
 .het-per-100{
   height: 100%;

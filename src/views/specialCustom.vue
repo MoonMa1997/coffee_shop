@@ -1,6 +1,180 @@
 <template>
-  <div class="bg-fe ht-650 flex pd-0-15">
-    <div class="wd-per-50">专属定制</div>
+  <div class="bg-fe flex pd-0-15">
+    <div class="wd-per-100 flex">
+      <!-- 左侧图片 -->
+      <div class="wid-per-20">
+        <div>111</div>
+      </div>
+      <!-- 右侧定制 -->
+      <div class="wid-per-80 pd-5 ov-y">
+        <div class="mrgb-15">● 咖啡豆</div>
+        <div class="flex ov-y fts-13">
+          <!-- 1 -->
+          <div class="cp-div">
+            <div class="img-box">
+              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+            </div>
+            <div class="flex jst-c">
+              <div>哥伦比亚咖啡豆</div>
+              <div class="plus-item">＋</div>
+            </div>
+          </div>
+
+          <div class="cp-div">
+            <div class="img-box">
+              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+            </div>
+            <div class="flex jst-c">
+              <div>肯尼亚咖啡豆</div>
+              <div class="plus-item">＋</div>
+            </div>
+          </div>
+
+          <div class="cp-div">
+            <div class="img-box">
+              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+            </div>
+            <div class="flex jst-c">
+              <div>埃塞俄比亚咖啡豆</div>
+              <div class="plus-item">＋</div>
+            </div>
+          </div>
+
+          <div class="cp-div">
+            <div class="img-box">
+              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+            </div>
+            <div class="flex jst-c">
+              <div>苏门答腊咖啡豆</div>
+              <div class="plus-item">＋</div>
+            </div>
+          </div>
+
+          <div class="cp-div">
+            <div class="img-box">
+              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+            </div>
+            <div class="flex jst-c">
+              <div>意式烘焙咖啡豆</div>
+              <div class="plus-item">＋</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mrgb-15">● 制作手法</div>
+        <div class="flex ov-y fts-13">
+          <!-- 1 -->
+          <div class="cp-div">
+            <div class="img-box">
+              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+            </div>
+            <div class="flex jst-c">
+              <div>冷萃</div>
+              <div class="plus-item">＋</div>
+            </div>
+          </div>
+
+          <div class="cp-div">
+            <div class="img-box">
+              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+            </div>
+            <div class="flex jst-c">
+              <div>手工调制</div>
+              <div class="plus-item">＋</div>
+            </div>
+          </div>
+
+          <div class="cp-div">
+            <div class="img-box">
+              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+            </div>
+            <div class="flex jst-c">
+              <div>中度烘焙</div>
+              <div class="plus-item">＋</div>
+            </div>
+          </div>
+
+          <div class="cp-div">
+            <div class="img-box">
+              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+            </div>
+            <div class="flex jst-c">
+              <div>深度烘焙</div>
+              <div class="plus-item">＋</div>
+            </div>
+          </div>
+
+          <div class="cp-div">
+            <div class="img-box">
+              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+            </div>
+            <div class="flex jst-c">
+              <div>滴滤</div>
+              <div class="plus-item">＋</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mrgb-15">● 小料</div>
+        <div class="flex ov-y fts-13">
+          <!-- 1 -->
+          <div class="cp-div">
+            <div class="img-box">
+              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+            </div>
+            <div class="flex jst-c">
+              <div>奶盖</div>
+              <div class="plus-item">＋</div>
+            </div>
+          </div>
+
+          <div class="cp-div">
+            <div class="img-box">
+              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+            </div>
+            <div class="flex jst-c">
+              <div>奶油</div>
+              <div class="plus-item">＋</div>
+            </div>
+          </div>
+
+          <div class="cp-div">
+            <div class="img-box">
+              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+            </div>
+            <div class="flex jst-c">
+              <div>牛奶</div>
+              <div class="plus-item">＋</div>
+            </div>
+          </div>
+
+          <div class="cp-div">
+            <div class="img-box">
+              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+            </div>
+            <div class="flex jst-c">
+              <div>椰汁</div>
+              <div class="plus-item">＋</div>
+            </div>
+          </div>
+
+          <div class="cp-div">
+            <div class="img-box">
+              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+            </div>
+            <div class="flex jst-c">
+              <div>抹茶</div>
+              <div class="plus-item">＋</div>
+            </div>
+          </div>
+        </div>
+        <!-- button -->
+        <div class="pdt-22">
+          <div class="btn-shop">添加至购物车</div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -8,14 +182,118 @@
 </script>
 
 <style scoped>
+.flex{
+  display: flex;
+}
 .ht-650{
   height: 650px;
 }
 .pd-0-15{
     padding: 0 15%
 }
-.wd-per-50{
-  width: 50%;
+.wd-per-100{
+  width: 100%;
 }
-
+.mrgb-15{
+  margin-bottom: 15px;
+}
+.wrap{
+  flex-wrap: wrap;
+}
+.cf-pic{
+  width: 85px;
+  height: 106px;
+  position: absolute;
+  left: 29%;
+  z-index: 3;
+}
+.cf-font{
+  position: absolute;
+  top: 56%;
+  text-align: center;
+  width: 100%;
+  left: 0;
+  font-weight: 800;
+}
+.cp-div{
+  width: 150px;
+  height: 190px;
+  margin: 0px 30px;
+}
+.wid-het{
+  width: 85px;
+  height: 106px;
+}
+.img-box{
+  width: 150px;
+  height: 150px;
+  background: darkgray;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.jst-c{
+  justify-content: center;
+}
+.plus-item{
+  height: 19px;
+  width: 24px;
+  background: #60955f;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  line-height: 17px;
+  margin: auto 5px;
+}
+.wid-per-20{
+  width: 20%;
+}
+.wid-per-80{
+  width: 80%;
+}
+.hg-per-100{
+  height: 100%;
+}
+.pd-5{
+  padding: 3% 5%;
+}
+.ov-y{
+  overflow-y: auto;
+}
+.ov-y::-webkit-scrollbar{
+    width: 4px;
+    height: 4px;
+    background-color: #fef6f1;
+}
+/*定义滚动条的轨道，内阴影及圆角*/
+.ov-y::-webkit-scrollbar-track{
+    border-radius: 1px;
+    background-color: #fef6f1;
+}
+/*定义滑块，内阴影及圆角*/
+.ov-y::-webkit-scrollbar-thumb{
+    width: 4px;
+    height: 4px;
+    border-radius: 1px;
+    background-color: #997e61;
+}
+.fts-13{
+  font-size: 13px;
+}
+.btn-shop{
+  width: 160px;
+  height: 50px;
+  background: #60955f;
+  color: white;
+  font-weight: 800;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 40px;
+  float: right;
+}
+.pdt-22{
+  padding-top: 22px;
+}
 </style>>
