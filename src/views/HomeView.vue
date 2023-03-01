@@ -26,9 +26,9 @@ export default{
 <template>
   <div class="bg-fe ht-650 flex">
     <div class="wd-per-100">
-      <el-carousel :interval="4000" type="card" width="768px" height="384px">
+      <el-carousel :interval="4000" type="card" height="470px" style="margin:auto;">
         <el-carousel-item v-for="item in imagList" :key="item">
-          <img style="width:768px;height:384px;" :src="item.srcValue" />
+          <img style="height:470px;" :src="item.srcValue" />
         </el-carousel-item>
       </el-carousel>
     </div>
