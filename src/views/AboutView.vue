@@ -16,52 +16,12 @@
         <div class="mrgb-15">● 咖啡系列</div>
         <div class="flex wrap">
           <!-- one coffee -->
-          <div class="cp-div">
+          <div class="cp-div" v-for="item in coffeeList" :key="item.num">
             <div class="cf-pic">
-              <img class="wid-per-100" src="../assets/images/coffee.png" />
+              <img class="wid-per-100 h-per100" :src="item.path" />
             </div>
             <div class="kf-bg">
-              <div class="cf-font">冷萃冰咖啡</div>
-            </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
-          </div>
-
-          <div class="cp-div">
-            <div class="cf-pic">
-              <img class="wid-per-100" src="../assets/images/coffee.png" />
-            </div>
-            <div class="kf-bg">
-              <div class="cf-font">冷萃冰咖啡</div>
-            </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
-          </div>
-
-          <div class="cp-div">
-            <div class="cf-pic">
-              <img class="wid-per-100" src="../assets/images/coffee.png" />
-            </div>
-            <div class="kf-bg">
-              <div class="cf-font">冷萃冰咖啡</div>
-            </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
-          </div>
-
-          <div class="cp-div">
-            <div class="cf-pic">
-              <img class="wid-per-100" src="../assets/images/coffee.png" />
-            </div>
-            <div class="kf-bg">
-              <div class="cf-font">冷萃冰咖啡</div>
-            </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
-          </div>
-
-          <div class="cp-div">
-            <div class="cf-pic">
-              <img class="wid-per-100" src="../assets/images/coffee.png" />
-            </div>
-            <div class="kf-bg">
-              <div class="cf-font">冷萃冰咖啡</div>
+              <div class="cf-font">{{item.name}}</div>
             </div>
             <div class="plus" @click="dialogVisible = true">＋</div>
           </div>
@@ -71,52 +31,12 @@
         <div class="mrgb-15">● 茶系列</div>
         <div class="flex wrap">
           <!-- one coffee -->
-          <div class="cp-div">
+          <div class="cp-div" v-for="item in teaList" :key="item.num">
             <div class="cf-pic">
-              <img class="wid-per-100 het-per-100" src="../assets/images/tea1.png" />
+              <img class="wid-per-100 het-per-100" :src="item.path" />
             </div>
             <div class="kf-bg">
-              <div class="cf-font">柠檬茶</div>
-            </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
-          </div>
-
-          <div class="cp-div">
-            <div class="cf-pic">
-              <img class="wid-per-100 het-per-100" src="../assets/images/tea1.png" />
-            </div>
-            <div class="kf-bg">
-              <div class="cf-font">薄荷红茶</div>
-            </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
-          </div>
-
-          <div class="cp-div">
-            <div class="cf-pic">
-              <img class="wid-per-100 het-per-100" src="../assets/images/tea1.png" />
-            </div>
-            <div class="kf-bg">
-              <div class="cf-font">冻柠茶</div>
-            </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
-          </div>
-
-          <div class="cp-div">
-            <div class="cf-pic">
-              <img class="wid-per-100 het-per-100" src="../assets/images/tea1.png" />
-            </div>
-            <div class="kf-bg">
-              <div class="cf-font">橙汁</div>
-            </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
-          </div>
-
-          <div class="cp-div">
-            <div class="cf-pic">
-              <img class="wid-per-100 het-per-100" src="../assets/images/tea1.png" />
-            </div>
-            <div class="kf-bg">
-              <div class="cf-font">冰柠檬</div>
+              <div class="cf-font">{{item.name}}</div>
             </div>
             <div class="plus" @click="dialogVisible = true">＋</div>
           </div>
@@ -126,47 +46,46 @@
         <div class="mrgb-15">● 甜品系列</div>
         <div class="flex wrap">
           <!-- one coffee -->
-          <div class="cp-div">
+          <div class="cp-div" v-for="item in sweetList" :key="item.num">
             <div class="cf-pic">
-              <img class="wid-per-100" src="../assets/images/dessert.png" />
+              <img class="wid-per-100" :src="item.path" />
             </div>
             <div class="kf-bg">
-              <div class="cf-font">草莓蛋糕</div>
-            </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
-          </div>
-
-          <div class="cp-div">
-            <div class="cf-pic">
-              <img class="wid-per-100" src="../assets/images/dessert.png" />
-            </div>
-            <div class="kf-bg">
-              <div class="cf-font">草莓蛋糕</div>
-            </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
-          </div>
-
-          <div class="cp-div">
-            <div class="cf-pic">
-              <img class="wid-per-100" src="../assets/images/dessert.png" />
-            </div>
-            <div class="kf-bg">
-              <div class="cf-font">草莓蛋糕</div>
-            </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
-          </div>
-
-          <div class="cp-div">
-            <div class="cf-pic">
-              <img class="wid-per-100" src="../assets/images/dessert.png" />
-            </div>
-            <div class="kf-bg">
-              <div class="cf-font">草莓蛋糕</div>
+              <div class="cf-font">{{item.name}}</div>
             </div>
             <div class="plus" @click="dialogVisible = true">＋</div>
           </div>
 
         </div>
+
+        <div class="mrgb-15">● 咖啡产品</div>
+        <div class="flex wrap">
+          <!-- one coffee -->
+          <div class="cp-div" v-for="item in prodList" :key="item.num">
+            <div class="cf-pic">
+              <img class="wid-per-100" :src="item.path" />
+            </div>
+            <div class="kf-bg">
+              <div class="cf-font">{{item.name}}</div>
+            </div>
+            <div class="plus" @click="dialogVisible = true">＋</div>
+          </div>
+        </div>
+
+        <div class="mrgb-15">● 周边产品</div>
+        <div class="flex wrap">
+          <!-- one coffee -->
+          <div class="cp-div" v-for="item in itemList" :key="item.num">
+            <div class="cf-pic">
+              <img class="wid-per-100 bord-r-p50" :src="item.path" />
+            </div>
+            <div class="kf-bg">
+              <div class="cf-font">{{item.name}}</div>
+            </div>
+            <div class="plus" @click="dialogVisible = true">＋</div>
+          </div>
+        </div>
+
       </div>
     </div>
     <!-- 弹框 -->
@@ -247,6 +166,141 @@ export default {
   data(){
     return{
       dialogVisible : false,
+      coffeeList: [
+        {
+          num: 1,
+          name: "焦糖玛奇朵",
+          path: '../src/assets/images/production/coffee1.png',
+        },
+        {
+          num: 2,
+          name: "冷萃冰咖啡",
+          path: '../src/assets/images/production/coffee2.png',
+        },
+        {
+          num: 3,
+          name: "美式咖啡",
+          path: './src/assets/images/production/coffee3.png',
+        },
+        {
+          num: 4,
+          name: "绵云冷萃",
+          path: '../src/assets/images/production/coffee4.png',
+        },
+        {
+          num: 5,
+          name: "摩卡",
+          path: '../src/assets/images/production/coffee5.png',
+        },
+      ],
+      teaList: [
+        {
+          num: 1,
+          name: "冰摇红茶",
+          path: '../src/assets/images/production/tea1.png',
+        },
+        {
+          num: 2,
+          name: "红茶拿铁",
+          path: '../src/assets/images/production/tea2.png',
+        },
+        {
+          num: 3,
+          name: "橘香花茶",
+          path: './src/assets/images/production/tea3.png',
+        },
+        {
+          num: 4,
+          name: "梨子清茶",
+          path: '../src/assets/images/production/tea4.png',
+        },
+        {
+          num: 5,
+          name: "抹茶拿铁",
+          path: '../src/assets/images/production/tea5.png',
+        },
+      ],
+      sweetList: [
+        {
+          num: 1,
+          name: "经典瑞士卷",
+          path: '../src/assets/images/production/sweet1.png',
+        },
+        {
+          num: 2,
+          name: "蓝莓麦芬",
+          path: '../src/assets/images/production/sweet2.png',
+        },
+        {
+          num: 3,
+          name: "巧克力蛋糕",
+          path: './src/assets/images/production/sweet3.png',
+        },
+        {
+          num: 4,
+          name: "全麦核桃麦芬",
+          path: '../src/assets/images/production/sweet4.png',
+        },
+        {
+          num: 5,
+          name: "提拉米苏",
+          path: '../src/assets/images/production/sweet5.png',
+        },
+      ],
+      prodList: [
+        {
+          num: 1,
+          name: "哥伦比亚咖啡豆",
+          path: '../src/assets/images/production/bea1.png',
+        },
+        {
+          num: 2,
+          name: "埃塞俄比亚咖啡豆",
+          path: '../src/assets/images/production/bea2.png',
+        },
+        {
+          num: 3,
+          name: "肯尼亚咖啡豆",
+          path: './src/assets/images/production/bea3.png',
+        },
+        {
+          num: 4,
+          name: "苏门答腊咖啡豆",
+          path: '../src/assets/images/production/bea4.png',
+        },
+        {
+          num: 5,
+          name: "意式烘焙咖啡豆",
+          path: '../src/assets/images/production/bea5.png',
+        },
+      ],
+      itemList: [
+        {
+          num: 1,
+          name: "白瓷杯",
+          path: '../src/assets/images/production/item1.png',
+        },
+        {
+          num: 2,
+          name: "橙色随手杯",
+          path: '../src/assets/images/production/item2.png',
+        },
+        {
+          num: 3,
+          name: "粉色随手杯",
+          path: './src/assets/images/production/item3.png',
+        },
+        {
+          num: 4,
+          name: "黑色随手杯",
+          path: '../src/assets/images/production/item4.png',
+        },
+        {
+          num: 5,
+          name: "蓝色随手杯",
+          path: '../src/assets/images/production/item5.png',
+        },
+      ],
     }
   },
   setup(){
@@ -492,5 +546,11 @@ export default {
 }
 .cl-61{
   color: #fef6f1;
+}
+.h-per100{
+  height: 100%;
+}
+.bord-r-p50{
+  border-radius: 50%;
 }
 </style>

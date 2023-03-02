@@ -1,6 +1,8 @@
 <template>
     <div class="hit-680 flex">
-        <div class="w-p50 ht-per100"></div>
+        <div class="w-p50 ht-per100" style="padding-right:30px;">
+            <img class="ht-per100 w-p100" src="../assets/images/contact-left.png"/>
+        </div>
         <div class="w-p50 ht-per100 pdt-40">
             <p>Contact Us <br> 联系我们</p>
             <div>●客服电话：000-123456 (工作时间： 8:00-18:00)</div>
@@ -101,6 +103,9 @@ export default {
 }
 </script>
 <style scoped>
+.w-p100{
+    width: 100%;
+}
 .w-p50{
     width: 50%;
 }

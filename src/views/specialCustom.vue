@@ -9,108 +9,26 @@
       <div class="wid-per-80 pd-5 ov-y">
         <div class="mrgb-15">● 咖啡豆</div>
         <div class="flex ov-y fts-13">
-          <!-- 1 -->
-          <div class="cp-div">
+          <div class="cp-div" v-for="img in imgList" :key="img.num">
             <div class="img-box">
-              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+              <img class="wid-per-100 wid-het" :src="img.path" />
             </div>
             <div class="flex jst-c">
-              <div>哥伦比亚咖啡豆</div>
+              <div>{{ img.name }}</div>
               <div class="plus-item">＋</div>
             </div>
           </div>
-
-          <div class="cp-div">
-            <div class="img-box">
-              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
-            </div>
-            <div class="flex jst-c">
-              <div>肯尼亚咖啡豆</div>
-              <div class="plus-item">＋</div>
-            </div>
-          </div>
-
-          <div class="cp-div">
-            <div class="img-box">
-              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
-            </div>
-            <div class="flex jst-c">
-              <div>埃塞俄比亚咖啡豆</div>
-              <div class="plus-item">＋</div>
-            </div>
-          </div>
-
-          <div class="cp-div">
-            <div class="img-box">
-              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
-            </div>
-            <div class="flex jst-c">
-              <div>苏门答腊咖啡豆</div>
-              <div class="plus-item">＋</div>
-            </div>
-          </div>
-
-          <div class="cp-div">
-            <div class="img-box">
-              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
-            </div>
-            <div class="flex jst-c">
-              <div>意式烘焙咖啡豆</div>
-              <div class="plus-item">＋</div>
-            </div>
-          </div>
-
         </div>
 
         <div class="mrgb-15">● 制作手法</div>
         <div class="flex ov-y fts-13">
           <!-- 1 -->
-          <div class="cp-div">
+          <div class="cp-div" v-for="item in makeList" :key="item.num">
             <div class="img-box">
-              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+              <img class="wid-per-100 wid-het" :src="item.path" />
             </div>
             <div class="flex jst-c">
-              <div>冷萃</div>
-              <div class="plus-item">＋</div>
-            </div>
-          </div>
-
-          <div class="cp-div">
-            <div class="img-box">
-              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
-            </div>
-            <div class="flex jst-c">
-              <div>手工调制</div>
-              <div class="plus-item">＋</div>
-            </div>
-          </div>
-
-          <div class="cp-div">
-            <div class="img-box">
-              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
-            </div>
-            <div class="flex jst-c">
-              <div>中度烘焙</div>
-              <div class="plus-item">＋</div>
-            </div>
-          </div>
-
-          <div class="cp-div">
-            <div class="img-box">
-              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
-            </div>
-            <div class="flex jst-c">
-              <div>深度烘焙</div>
-              <div class="plus-item">＋</div>
-            </div>
-          </div>
-
-          <div class="cp-div">
-            <div class="img-box">
-              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
-            </div>
-            <div class="flex jst-c">
-              <div>滴滤</div>
+              <div>{{ item.name }}</div>
               <div class="plus-item">＋</div>
             </div>
           </div>
@@ -119,52 +37,12 @@
         <div class="mrgb-15">● 小料</div>
         <div class="flex ov-y fts-13">
           <!-- 1 -->
-          <div class="cp-div">
+          <div class="cp-div" v-for="item in addList" :key="item.num">
             <div class="img-box">
-              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
+              <img class="wid-per-100 wid-het" :src="item.path" />
             </div>
             <div class="flex jst-c">
-              <div>奶盖</div>
-              <div class="plus-item">＋</div>
-            </div>
-          </div>
-
-          <div class="cp-div">
-            <div class="img-box">
-              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
-            </div>
-            <div class="flex jst-c">
-              <div>奶油</div>
-              <div class="plus-item">＋</div>
-            </div>
-          </div>
-
-          <div class="cp-div">
-            <div class="img-box">
-              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
-            </div>
-            <div class="flex jst-c">
-              <div>牛奶</div>
-              <div class="plus-item">＋</div>
-            </div>
-          </div>
-
-          <div class="cp-div">
-            <div class="img-box">
-              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
-            </div>
-            <div class="flex jst-c">
-              <div>椰汁</div>
-              <div class="plus-item">＋</div>
-            </div>
-          </div>
-
-          <div class="cp-div">
-            <div class="img-box">
-              <img class="wid-per-100 wid-het" src="../assets/images/coffee.png" />
-            </div>
-            <div class="flex jst-c">
-              <div>抹茶</div>
+              <div>{{ item.name }}</div>
               <div class="plus-item">＋</div>
             </div>
           </div>
@@ -178,8 +56,96 @@
   </div>
 </template>
 
-<script setup>
-</script>
+<script>
+export default {
+  name: 'special',
+  data(){
+    return{
+      imgList: [
+        {
+          num: 1,
+          name: "哥伦比亚咖啡豆",
+          path: '../src/assets/images/sepacial/beag.jpg',
+        },
+        {
+          num: 2,
+          name: "埃塞俄比亚咖啡豆",
+          path: '../src/assets/images/sepacial/beaa.png',
+        },
+        {
+          num: 3,
+          name: "肯尼亚咖啡豆",
+          path: './src/assets/images/sepacial/beak.png',
+        },
+        {
+          num: 4,
+          name: "苏门答腊咖啡豆",
+          path: '../src/assets/images/sepacial/beas.png',
+        },
+        {
+          num: 5,
+          name: "意式烘焙咖啡豆",
+          path: '../src/assets/images/sepacial/beay.png',
+        },
+      ],
+      makeList: [
+        {
+          num: 1,
+          name: "滴滤",
+          path: '../src/assets/images/sepacial/dlv.png',
+        },
+        {
+          num: 2,
+          name: "冷萃",
+          path: '../src/assets/images/sepacial/lc.png',
+        },
+        {
+          num: 3,
+          name: "深度烘焙",
+          path: './src/assets/images/sepacial/sd.png',
+        },
+        {
+          num: 4,
+          name: "手工调制",
+          path: '../src/assets/images/sepacial/sg.png',
+        },
+        {
+          num: 5,
+          name: "中度烘焙",
+          path: '../src/assets/images/sepacial/zd.png',
+        },
+      ],
+      addList: [
+        {
+          num: 1,
+          name: "抹茶",
+          path: '../src/assets/images/sepacial/mocha.png',
+        },
+        {
+          num: 2,
+          name: "奶盖",
+          path: '../src/assets/images/sepacial/naigai.png',
+        },
+        {
+          num: 3,
+          name: "奶油",
+          path: './src/assets/images/sepacial/naiyou.png',
+        },
+        {
+          num: 4,
+          name: "牛奶",
+          path: '../src/assets/images/sepacial/niunai.png',
+        },
+        {
+          num: 5,
+          name: "椰汁",
+          path: '../src/assets/images/sepacial/yezhi.png',
+        },
+      ],
+    }
+  }
+}
+</script>>
 
 <style scoped>
 .flex{
@@ -221,8 +187,9 @@
   margin: 0px 30px;
 }
 .wid-het{
-  width: 85px;
-  height: 106px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 .img-box{
   width: 150px;

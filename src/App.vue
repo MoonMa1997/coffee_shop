@@ -1,6 +1,20 @@
-<script setup>
+<script>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+export default{
+  data(){
+    return{
+      navClick: "",
+      classtype: "",
+    }
+  },
+  methods:{
+    changeHeader(item) {
+      this.navClick = item
+      //FIXME:此处进行判断进行一个 路由跳转
+    }
+  }
+}
 </script>
 
 <template>
@@ -19,12 +33,12 @@ import HelloWorld from './components/HelloWorld.vue'
     <div class="height100 bgc-609 col-fe">
       <div class="route-div">
         <div class="mrgr-10 col-fe strong">壹杯咖啡</div>
-        <RouterLink to="/" class="mrgr-10 col-fe">首页</RouterLink>
-        <RouterLink to="/about" class="mrgr-10 col-fe">产品系列</RouterLink>
-        <RouterLink to="/specialCustom" class="mrgr-10 col-fe">专属定制</RouterLink>
-        <RouterLink to="/myAccount" class="mrgr-10 col-fe">我的账户</RouterLink>
-        <RouterLink to="/contactUs" class="mrgr-10 col-fe">联系我们</RouterLink>
-        <RouterLink to="/about" class="mrgr-10 col-fe">购物车</RouterLink>
+        <RouterLink to="/" class="mrgr-10 col-fe" :class="'home' == navClick ? 'focusOn' : '' " @click="changeHeader('home')">首页</RouterLink>
+        <RouterLink to="/about" class="mrgr-10 col-fe" :class="'production' == navClick ? 'focusOn' : '' " @click="changeHeader('production')">产品系列</RouterLink>
+        <RouterLink to="/specialCustom" class="mrgr-10 col-fe" :class="'special' == navClick ? 'focusOn' : '' " @click="changeHeader('special')">专属定制</RouterLink>
+        <RouterLink to="/myAccount" class="mrgr-10 col-fe" :class="'account' == navClick ? 'focusOn' : '' " @click="changeHeader('account')">我的账户</RouterLink>
+        <RouterLink to="/contactUs" class="mrgr-10 col-fe" :class="'contact' == navClick ? 'focusOn' : '' " @click="changeHeader('contact')">联系我们</RouterLink>
+        <RouterLink to="/about" class="mrgr-10 col-fe" :class="'goodcar' == navClick ? 'focusOn' : '' " @click="changeHeader('goodcar')">购物车</RouterLink>
       </div>
     </div>
     <!-- content -->
@@ -46,6 +60,15 @@ import HelloWorld from './components/HelloWorld.vue'
 </template>
 
 <style scoped>
+a:hover{
+  font-weight: 800;
+  font-size: 17px;
+}
+.focusOn{
+  font-weight: 800;
+  font-size: 17px;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
