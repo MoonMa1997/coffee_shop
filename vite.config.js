@@ -12,11 +12,15 @@ export default defineConfig({
     }
   },
   server: {
-    // proxy: {
-    //   '/': {
-    //       target: 'https://www.baidu.com',
-    //       pathRewrite: {'^/':''},
-    //   }
-    // }
-  }
+    host: '0.0.0.0',
+    port: 8070,
+  },
+  // server: {
+  //   // proxy: {
+  //   //   '/': {
+  //   //       target: 'https://www.baidu.com',
+  //   //       pathRewrite: {'^/':''},
+  //   //   }
+  //   // }
+  // }
 })

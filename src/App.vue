@@ -38,7 +38,7 @@ export default{
         <RouterLink to="/specialCustom" class="mrgr-10 col-fe" :class="'special' == navClick ? 'focusOn' : '' " @click="changeHeader('special')">专属定制</RouterLink>
         <RouterLink to="/myAccount" class="mrgr-10 col-fe" :class="'account' == navClick ? 'focusOn' : '' " @click="changeHeader('account')">我的账户</RouterLink>
         <RouterLink to="/contactUs" class="mrgr-10 col-fe" :class="'contact' == navClick ? 'focusOn' : '' " @click="changeHeader('contact')">联系我们</RouterLink>
-        <RouterLink to="/about" class="mrgr-10 col-fe" :class="'goodcar' == navClick ? 'focusOn' : '' " @click="changeHeader('goodcar')">购物车</RouterLink>
+        <!-- <RouterLink to="/about" class="mrgr-10 col-fe" :class="'goodcar' == navClick ? 'focusOn' : '' " @click="changeHeader('goodcar')">购物车</RouterLink> -->
       </div>
     </div>
     <!-- content -->
