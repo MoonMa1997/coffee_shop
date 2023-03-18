@@ -24,7 +24,7 @@ export default{
 </script>
 
 <template>
-  <div class="bg-fe ht-650 flex">
+  <div class="bg-fe ht-650">
     <div class="wd-per-100">
       <el-carousel :interval="4000" type="card" height="470px" style="margin:auto;">
         <el-carousel-item v-for="item in imagList" :key="item">
@@ -32,12 +32,18 @@ export default{
         </el-carousel-item>
       </el-carousel>
     </div>
+    <div class="wd-per-100">
+      <img src="../assets/images/home1.png"/>
+    </div>
+    <div class="wd-per-100">
+      <img src="../assets/images/home2.PNG"/>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .ht-650{
-  height: 700px;
+  height: 1563px;
 }
 .pd-0-300{
   padding: 0 300px;

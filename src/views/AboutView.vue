@@ -23,7 +23,7 @@
             <div class="kf-bg">
               <div class="cf-font">{{item.name}}</div>
             </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
+            <div class="plus" @click="showItemDialog">＋</div>
           </div>
 
         </div>
@@ -38,7 +38,7 @@
             <div class="kf-bg">
               <div class="cf-font">{{item.name}}</div>
             </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
+            <div class="plus" @click="showItemDialog">＋</div>
           </div>
 
         </div>
@@ -53,7 +53,7 @@
             <div class="kf-bg">
               <div class="cf-font">{{item.name}}</div>
             </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
+            <div class="plus" @click="showItemDialog">＋</div>
           </div>
 
         </div>
@@ -68,7 +68,7 @@
             <div class="kf-bg">
               <div class="cf-font">{{item.name}}</div>
             </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
+            <div class="plus" @click="showItemDialog">＋</div>
           </div>
         </div>
 
@@ -82,7 +82,7 @@
             <div class="kf-bg">
               <div class="cf-font">{{item.name}}</div>
             </div>
-            <div class="plus" @click="dialogVisible = true">＋</div>
+            <div class="plus" @click="showItemDialog">＋</div>
           </div>
         </div>
 
@@ -109,46 +109,46 @@
           <div class="flex line-type">
             <div class="wid-per-5 cl-61">杯型</div>
             <div class="flex jtf-bt wid-per-95">
-              <div class="bottle-type">小杯 320ml</div>
-              <div class="bottle-type">中杯 480ml</div>
-              <div class="bottle-type">大杯 600ml</div>
+              <div class="bottle-type" :class="isSize==1?'bottle-type-select':''" @click="selectSize(1)">小杯 320ml</div>
+              <div class="bottle-type" :class="isSize==2?'bottle-type-select':''" @click="selectSize(2)">中杯 480ml</div>
+              <div class="bottle-type" :class="isSize==3?'bottle-type-select':''" @click="selectSize(3)">大杯 600ml</div>
             </div>
           </div>
           <div class="flex line-type">
             <div class="wid-per-5 cl-61">甜度</div>
             <div class="flex jtf-bt wid-per-95">
-              <div class="ice-type">无糖</div>
-              <div class="ice-type">三分糖</div>
-              <div class="ice-type">五分糖</div>
-              <div class="ice-type">七分糖</div>
-              <div class="ice-type">全糖</div>
+              <div class="sweet-type" :class="isSweet==1?'sweet-type-select':''" @click="selectSweet(1)">无糖</div>
+              <div class="sweet-type" :class="isSweet==2?'sweet-type-select':''" @click="selectSweet(2)">三分糖</div>
+              <div class="sweet-type" :class="isSweet==3?'sweet-type-select':''" @click="selectSweet(3)">五分糖</div>
+              <div class="sweet-type" :class="isSweet==4?'sweet-type-select':''" @click="selectSweet(4)">七分糖</div>
+              <div class="sweet-type" :class="isSweet==5?'sweet-type-select':''" @click="selectSweet(5)">全糖</div>
             </div>
           </div>
           <div class="flex line-type">
             <div class="wid-per-5 cl-61">温度</div>
             <div class="flex jtf-bt wid-per-95">
-              <div class="ice-type">正常冰</div>
-              <div class="ice-type">少冰</div>
-              <div class="ice-type">去冰</div>
-              <div class="ice-type">常温</div>
-              <div class="ice-type">热</div>
+              <div class="ice-type" :class="isIce==1?'ice-type-select':''" @click="selectIce(1)">正常冰</div>
+              <div class="ice-type" :class="isIce==2?'ice-type-select':''" @click="selectIce(2)">少冰</div>
+              <div class="ice-type" :class="isIce==3?'ice-type-select':''" @click="selectIce(3)">去冰</div>
+              <div class="ice-type" :class="isIce==4?'ice-type-select':''" @click="selectIce(4)">常温</div>
+              <div class="ice-type" :class="isIce==5?'ice-type-select':''" @click="selectIce(5)">热</div>
             </div>
           </div>
           <div class="flex line-type">
             <div class="wid-per-15 cl-61">添加或更换牛奶</div>
             <div class="flex jtf-bt wid-per-85">
-              <div class="mulk-type">脱脂牛奶</div>
-              <div class="mulk-type">全脂牛奶</div>
-              <div class="mulk-type">燕麦奶</div>
+              <div class="mulk-type" :class="isMulk==1?'mulk-type-select':''" @click="selectmulk(1)">脱脂牛奶</div>
+              <div class="mulk-type" :class="isMulk==2?'mulk-type-select':''" @click="selectmulk(2)">全脂牛奶</div>
+              <div class="mulk-type" :class="isMulk==3?'mulk-type-select':''" @click="selectmulk(3)">燕麦奶</div>
             </div>
           </div>
         </div>
       </div>
       <template #footer>
         <span class="dialog-footer footer-dig">
-          <div>数量 - 1 +</div>
+          <div>数量 <span @click="subtractOne">-</span>{{ getNumber }}<span @click="addOne">+</span></div>
           <!-- <el-button @click="dialogVisible = false">Cancel</el-button> -->
-          <el-button type="primary" @click="dialogVisible = false">
+          <el-button type="primary" @click="addShopCar">
             添加至购物车 ￥36
           </el-button>
         </span>
@@ -159,7 +159,7 @@
 
 <script>
 import { reactive,onMounted} from "vue";
-import {alldata} from "@/http/api/homeapi.js"
+import { alldata, addOrderInfo } from "@/http/api/homeapi.js"
 
 export default {
   name: "about",
@@ -301,6 +301,15 @@ export default {
           path: '../src/assets/images/production/item5.png',
         },
       ],
+      isSize: 1,
+      isSweet:1,
+      isIce: 1,
+      isMulk: 1,
+      selectSizeValue: '小杯 320ml',
+      selectSweetValue: '无糖',
+      selectIceValue: '正常冰',
+      selectMulkValue: '脱脂牛奶',
+      getNumber: 1,
     }
   },
   setup(){
@@ -334,7 +343,132 @@ export default {
   methods: {
     increment() {
       this.count++
-    }
+    },
+    selectSize(num){
+      this.isSize = num;
+      switch(num){
+        case 1:
+          this.selectSizeValue="小杯 320ml";
+          break;
+        case 2:
+          this.selectSizeValue="中杯 480ml";
+          break;
+        case 3:
+          this.selectSizeValue="大杯 600ml";
+          break;
+      }
+      console.log(this.selectSizeValue)
+    },
+    selectSweet(num){
+      let that = this;
+      that.isSweet = num;
+      switch(num){
+        case 1:
+          that.selectSweetValue="无糖";
+          break;
+        case 2:
+          this.selectSweetValue="三分糖";
+          break;
+        case 3:
+          this.selectSweetValue="五分糖";
+          break;
+        case 4:
+          this.selectSweetValue="七分糖";
+          break;
+        case 5:
+          this.selectSweetValue="全糖";
+          break;
+      }
+    },
+    selectIce(num){
+      let that = this;
+      that.isIce = num;
+      switch(num){
+        case 1:
+          that.selectIceValue="正常冰";
+          break;
+        case 2:
+          this.selectIceValue="少冰";
+          break;
+        case 3:
+          this.selectIceValue="去冰";
+          break;
+        case 4:
+          this.selectIceValue="常温";
+          break;
+        case 5:
+          this.selectIceValue="热";
+          break;
+      }
+    },
+    selectmulk(num){
+      this.isMulk = num;
+      switch(num){
+        case 1:
+          this.selectMulkValue="脱脂牛奶";
+          break;
+        case 2:
+          this.selectMulkValue="全脂牛奶";
+          break;
+        case 3:
+          this.selectMulkValue="燕麦奶";
+          break;
+      }
+    },
+    showItemDialog(){
+      this.dialogVisible = true;
+      this.isSize = 1;
+      this.isSweet = 1;
+      this.isIce = 1;
+      this.isMulk = 1;
+      this.selectSizeValue = '小杯 320ml'
+      this.selectSweetValue = '无糖'
+      this.selectIceValue = '正常冰'
+      this.selectMulkValue = '脱脂牛奶'
+      this.getNumber = 1
+    },
+    addShopCar(){
+      let value = "";
+      value = this.selectSizeValue + ";" +this.selectSweetValue + ";"+this.selectIceValue + ";"+this.selectMulkValue + ";";
+      let form={
+        orderId: null,
+        productId: null,
+        productName: "咖啡",
+        productType: 1,
+        productPrice: 32,
+        address: null,
+        productPicture: null,
+        orderStatus: null,
+        describe: null,
+        shopType: null,
+        buyerId: null,
+        buyerName: null,
+        type: null,
+        status: "0",
+        createBy: null,
+        createTime: null,
+        updateBy: null,
+        updateTime: null,
+        remark: null
+      }
+      addOrderInfo(form).then(response => {
+        this.$message({
+          message: '已添加到购物车',
+          type: 'success'
+        });
+        this.dialogVisible = false;
+      });
+      console.log(value)
+    },
+    addOne(){
+      this.getNumber+=1;
+    },
+    subtractOne(){
+      this.getNumber-=1;
+      if(this.getNumber<=0){
+        this.getNumber = 1
+      }
+    },
   },
 }
 </script>
@@ -494,12 +628,36 @@ export default {
   text-align: center;
   cursor: pointer;
 }
+
+.bottle-type-select{
+  width: 100px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 10px;
+  background: #765b3f;
+  color: #fef6f1;
+  text-align: center;
+  cursor: pointer;
+}
 .sweet-type{
   width: 60px;
-  height: 30px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 10px;
   background: #fef6f1;
   color: #997e61;
   text-align: center;
+  cursor: pointer;
+}
+.sweet-type-select{
+  width: 60px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 10px;
+  background: #765b3f;
+  color: #fef6f1;
+  text-align: center;
+  cursor: pointer;
 }
 .ice-type{
   width: 60px;
@@ -511,6 +669,16 @@ export default {
   text-align: center;
   cursor: pointer;
 }
+.ice-type-select{
+  width: 60px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 10px;
+  background: #765b3f;
+  color: #fef6f1;
+  text-align: center;
+  cursor: pointer;
+}
 .mulk-type{
   width: 75px;
   height: 35px;
@@ -518,6 +686,16 @@ export default {
   border-radius: 10px;
   background: #fef6f1;
   color: #997e61;
+  text-align: center;
+  cursor: pointer;
+}
+.mulk-type-select{
+  width: 75px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 10px;
+  background: #765b3f;
+  color: #fef6f1;
   text-align: center;
   cursor: pointer;
 }

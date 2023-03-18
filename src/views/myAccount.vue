@@ -5,6 +5,13 @@
         <div class="lg-re">
             <div class="cl-fe lg-titl fw-800">{{ isLogin? '账号密码登录':'注册' }}</div>
             <div class="flex mb-10">
+                <div class="w-p20 cl-fe">角色</div>
+                <el-select class="w-p60" v-model="valueRole" placeholder="请选择">
+                    <el-option label="商城" value="0"></el-option>
+                    <el-option label="个人中心" value="1"></el-option>
+                </el-select>
+            </div>
+            <div class="flex mb-10">
                 <div class="w-p20 cl-fe">账号</div>
                 <el-input class="w-p60" v-model="account" placeholder="请输入账号" />
             </div>
@@ -17,7 +24,7 @@
                 <el-input class="w-p60" v-model="repassword" type="password" show-password placeholder="请输入确认密码" />
             </div>
             <div>
-                <div class="btn-log fw-800">{{ isLogin? '登录':'注册' }}</div>
+                <div class="btn-log fw-800" @click="loginOrRegiter">{{ isLogin? '登录':'注册' }}</div>
                 <div class="fw-800 cl-fe w-30" @click="changeRegiter">{{ isLogin? '注册':'登录' }}</div>
             </div>
         </div>
@@ -26,6 +33,8 @@
 
 <script>
 import { method } from 'lodash';
+import { login } from "@/http/api/login.js"
+import Cookies from 'js-cookie'
 
 export default {
     name:'myaccount',
@@ -36,11 +45,31 @@ export default {
             account: "",
             password: "",
             repassword: "",
+            valueRole: '0'
         }
     },
     methods: {
         changeRegiter(){
             this.isLogin = !this.isLogin;
+            console.log('111', Cookies.get('TokenKey'))
+        },
+        loginOrRegiter(){
+            const username = this.account.trim()
+            const password = this.password
+            const code = ''
+            const uuid = '';
+            let that = this;
+            login(username, password, code, uuid).then(res => {
+                if(res.code==200){
+                    if(that.valueRole=='1'){
+                        window.location.href="http://localhost/index";
+                    }else{
+                        window.location.href="http://localhost:8080/about";
+                    }
+                }
+                Cookies.set('TokenKey', res.token);
+                }).catch(error => {
+                })
         }
     }
 }
