@@ -433,7 +433,7 @@ export default {
       let form={
         orderId: null,
         productId: null,
-        productName: "咖啡",
+        productName: value,
         productType: 1,
         productPrice: 32,
         address: null,
@@ -449,7 +449,8 @@ export default {
         createTime: null,
         updateBy: null,
         updateTime: null,
-        remark: null
+        remark: null,
+        productNum: this.getNumber
       }
       addOrderInfo(form).then(response => {
         this.$message({
