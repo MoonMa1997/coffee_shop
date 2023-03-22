@@ -1,5 +1,6 @@
 import axios from 'axios'
- 
+import Cookies from 'js-cookie'
+
 const request = axios.create({
     // baseURL: '',  // 注意！！ 这里是全局统一加上了 '/api' 前缀，也就是说所有接口都会加上'/api'前缀在，页面里面写接口的时候就不要加 '/api'了，否则会出现2个'/api'，类似 '/api/api/user'这样的报错，切记！！！
     timeout: 5000 * 10
@@ -8,14 +9,17 @@ const request = axios.create({
 // 可以自请求发送前对请求做一些处理
 // 比如统一加token，对请求参数统一加密
 request.interceptors.request.use(config => {
+    console.log(9999,Cookies.get('TokenKey'))
     if(config && config.headers){
+        // config.headers['Authorization'] = 'Bearer ' + Cookies.get('TokenKey')
         config.headers['Content-Type'] = 'application/json;charset=utf-8';
     }
-    // config.headers['Authorization'] = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjgxOGYwYjJlLWJiZTItNGZmMS1iNTE2LTk3MTJjYTZhZDg3MCJ9.lMcy_yDwXAeF-ROiQZQyPAujvmDaeltHGsu-xS08t4xzUijFJ7rx1DbYQwubTbS1DKJnPgyk1WXQAtYmKPMRCw' 
+    // config.headers['token'] = '"eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjMxNjhhMDc1LWRkYTktNDNhYS1iMmUyLTNhMGM5NjM1NzlkMSJ9.HpcKd6JYiEnpSGZ6BIFYM0L0IG3TzNEsDGqyassW4L8O8SAok25cgjaBoF5ukXqVJxqa7rTNjg3kspqI4tyzTw"';
+    
     // config.headers['X-isToken'] === false
-    // if (getToken() && !isToken) {
-    //     config.headers['Authorization'] = 'Bearer ' + getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
-    // }
+    if (Cookies.get('TokenKey')) {
+        config.headers['Authorization'] = 'Bearer ' + Cookies.get('TokenKey') // 让每个请求携带自定义token 请根据实际情况自行修改
+    }
     // config.headers['token'] = user.token;  // 设置请求头
     return config
 }, error => {

@@ -60,15 +60,17 @@ export default {
             const uuid = '';
             let that = this;
             login(username, password, code, uuid).then(res => {
+                console.log(111, res)
+                Cookies.set('TokenKey', res.token);
                 if(res.code==200){
                     if(that.valueRole=='1'){
-                        window.location.href="http://localhost/index";
+                        window.location.href="http://localhost/index"
                     }else{
-                        window.location.href="http://localhost:8080/about";
+                        that.$router.push('/about')
                     }
                 }
-                Cookies.set('TokenKey', res.token);
                 }).catch(error => {
+                console.log(111, error)
                 })
         }
     }

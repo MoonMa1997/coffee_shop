@@ -14,11 +14,10 @@ export function login(username, password, code, uuid) {
     const data = {
       username,
       password,
-      code,
-      uuid
     }
     return axios({
       url: 'http://localhost:8088/login',
+      
       headers: {
         isToken: false
       },

@@ -68,7 +68,7 @@
             <div class="kf-bg">
               <div class="cf-font">{{item.name}}</div>
             </div>
-            <div class="plus" @click="showItemDialog">＋</div>
+            <div class="plus" @click="showItemDialog(item)">＋</div>
           </div>
         </div>
 
@@ -159,7 +159,7 @@
 
 <script>
 import { reactive,onMounted} from "vue";
-import { alldata, addOrderInfo } from "@/http/api/homeapi.js"
+import { alldata, addOrderInfo, getProductInfo } from "@/http/api/homeapi.js"
 
 export default {
   name: "about",
@@ -171,16 +171,19 @@ export default {
           num: 1,
           name: "焦糖玛奇朵",
           path: '../src/assets/images/production/coffee1.png',
+          productType: 1
         },
         {
           num: 2,
           name: "冷萃冰咖啡",
           path: '../src/assets/images/production/coffee2.png',
+          productType: 1
         },
         {
           num: 3,
           name: "美式咖啡",
           path: './src/assets/images/production/coffee3.png',
+          productType: 1
         },
         {
           num: 4,
@@ -191,6 +194,7 @@ export default {
           num: 5,
           name: "摩卡",
           path: '../src/assets/images/production/coffee5.png',
+          productType: 1
         },
       ],
       teaList: [
@@ -198,26 +202,31 @@ export default {
           num: 1,
           name: "冰摇红茶",
           path: '../src/assets/images/production/tea1.png',
+          productType: 2
         },
         {
           num: 2,
           name: "红茶拿铁",
           path: '../src/assets/images/production/tea2.png',
+          productType: 2
         },
         {
           num: 3,
           name: "橘香花茶",
           path: './src/assets/images/production/tea3.png',
+          productType: 2
         },
         {
           num: 4,
           name: "梨子清茶",
           path: '../src/assets/images/production/tea4.png',
+          productType: 2
         },
         {
           num: 5,
           name: "抹茶拿铁",
           path: '../src/assets/images/production/tea5.png',
+          productType: 2
         },
       ],
       sweetList: [
@@ -310,6 +319,7 @@ export default {
       selectIceValue: '正常冰',
       selectMulkValue: '脱脂牛奶',
       getNumber: 1,
+      tempForm:{}
     }
   },
   setup(){
@@ -338,6 +348,7 @@ export default {
     }
   },
   mounted() {
+    this.getList();
     console.log(`the component is now mounted.`)
   },
   methods: {
@@ -415,7 +426,7 @@ export default {
           break;
       }
     },
-    showItemDialog(){
+    showItemDialog(item){
       this.dialogVisible = true;
       this.isSize = 1;
       this.isSweet = 1;
@@ -426,6 +437,9 @@ export default {
       this.selectIceValue = '正常冰'
       this.selectMulkValue = '脱脂牛奶'
       this.getNumber = 1
+      this.tempForm={
+        productType: item.productType
+      }
     },
     addShopCar(){
       let value = "";
@@ -453,12 +467,24 @@ export default {
         productNum: this.getNumber
       }
       addOrderInfo(form).then(response => {
-        this.$message({
-          message: '已添加到购物车',
-          type: 'success'
-        });
+        console.log('order',response)
+        if(response.code==200){
+          this.$message({
+            message: '已添加到购物车',
+            type: 'success'
+          });
+        }else{
+          this.$message({
+            message: '请先登录',
+            type: 'warning'
+          });
+          // window.location.href="http://localhost:8080/myAccount"
+        }
+        
         this.dialogVisible = false;
-      });
+      }).catch((error)=>{
+        console.log('error',error)
+      })
       console.log(value)
     },
     addOne(){
@@ -469,6 +495,27 @@ export default {
       if(this.getNumber<=0){
         this.getNumber = 1
       }
+    },
+    getList(){
+      let form={
+        pageNum: 1,
+        pageSize: 10
+      }
+      getProductInfo(form).then(response => {
+        if(response.code==200){
+          this.$message({
+            message: '查找成功',
+            type: 'success'
+          });
+        }else{
+          this.$message({
+            message: '请先登录',
+            type: 'warning'
+          });
+        }
+      }).catch((error)=>{
+        console.log('error',error)
+      })
     },
   },
 }

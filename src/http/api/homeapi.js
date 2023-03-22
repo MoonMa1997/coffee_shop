@@ -16,6 +16,16 @@ export function addOrderInfo(data) {
     data: data
   })
 }
+
+// 查找订单
+export function getProductInfo(data) {
+  return axios({
+    url: 'http://localhost:8088/system/ProductInfo/list',
+    method: 'get',
+    params: data,
+    
+  })
+}
  
  
 export default {alldata}
