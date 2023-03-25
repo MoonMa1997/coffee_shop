@@ -4,7 +4,7 @@
         <!-- 登录 -->
         <div class="lg-re">
             <div class="cl-fe lg-titl fw-800">{{ isLogin? '账号密码登录':'注册' }}</div>
-            <div class="flex mb-10">
+            <div class="flex mb-10" v-show="isLogin">
                 <div class="w-p20 cl-fe">角色</div>
                 <el-select class="w-p60" v-model="valueRole" placeholder="请选择">
                     <el-option label="商城" value="0"></el-option>
@@ -21,7 +21,7 @@
             </div>
             <div class="flex mb-10" v-show="!isLogin">
                 <div class="w-p20 cl-fe">确认密码</div>
-                <el-input class="w-p60" v-model="repassword" type="password" show-password placeholder="请输入确认密码" />
+                <el-input class="w-p60" v-model="confirmPassword" type="password" show-password placeholder="请输入确认密码" />
             </div>
             <div>
                 <div class="btn-log fw-800" @click="loginOrRegiter">{{ isLogin? '登录':'注册' }}</div>
@@ -33,7 +33,7 @@
 
 <script>
 import { method } from 'lodash';
-import { login } from "@/http/api/login.js"
+import { login,register } from "@/http/api/login.js"
 import Cookies from 'js-cookie'
 
 export default {
@@ -45,7 +45,8 @@ export default {
             account: "",
             password: "",
             repassword: "",
-            valueRole: '0'
+            valueRole: '0',
+            confirmPassword: ""
         }
     },
     methods: {
@@ -56,22 +57,42 @@ export default {
         loginOrRegiter(){
             const username = this.account.trim()
             const password = this.password
+            const confirmPassword = this.confirmPassword;
             const code = ''
             const uuid = '';
             let that = this;
-            login(username, password, code, uuid).then(res => {
-                console.log(111, res)
-                Cookies.set('TokenKey', res.token);
-                if(res.code==200){
-                    if(that.valueRole=='1'){
-                        window.location.href="http://localhost/index"
-                    }else{
-                        that.$router.push('/about')
+            if(that.isLogin){
+                login(username, password, code, uuid).then(res => {
+                    console.log(111, res)
+                    Cookies.set('TokenKey', res.token);
+                    if(res.code==200){
+                        if(that.valueRole=='1'){
+                            window.location.href="http://localhost/index"
+                        }else{
+                            that.$router.push('/about')
+                        }
                     }
-                }
-                }).catch(error => {
-                console.log(111, error)
+                    }).catch(error => {
+                    console.log(111, error)
+                    })
+            }else{
+                let registerForm = {
+                    username: username,
+                    password: password,
+                    confirmPassword: "",
+                    code: "",
+                    uuid: "",
+                    roleId: 102
+                };
+                register(registerForm).then(res => {
+                    const username = registerForm.username;
+                    that.isLogin = true;
+                    that.$alert("恭喜你，您的账号 " + username + " 注册成功！").then(() => {
+                        that.$router.push("/myAccount");
+                    }).catch(() => {});
+                }).catch(() => {
                 })
+            }
         }
     }
 }

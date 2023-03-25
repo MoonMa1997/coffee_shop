@@ -11,10 +11,10 @@
         <div class="flex ov-y fts-13">
           <div class="cp-div" v-for="img in imgList" :key="img.num">
             <div class="img-box">
-              <img class="wid-per-100 wid-het" :src="img.path" />
+              <img class="wid-per-100 wid-het" :src="img.productPicture" />
             </div>
             <div class="flex jst-c">
-              <div>{{ img.name }}</div>
+              <div>{{ img.productName }}</div>
               <div v-if="img.show" class="plus-item" @click="selectCoffeeBean(img)">＋</div>
               <div v-else class="plus-item-hide" @click="selectCoffeeBean(img)">－</div>
             </div>
@@ -26,10 +26,10 @@
           <!-- 1 -->
           <div class="cp-div" v-for="item in makeList" :key="item.num">
             <div class="img-box">
-              <img class="wid-per-100 wid-het" :src="item.path" />
+              <img class="wid-per-100 wid-het" :src="item.productPicture" />
             </div>
             <div class="flex jst-c">
-              <div>{{ item.name }}</div>
+              <div>{{ item.productName }}</div>
               <div v-if="item.show" class="plus-item" @click="selectCoffeeMake(item)">＋</div>
               <div v-else class="plus-item-hide" @click="selectCoffeeMake(item)">－</div>
             </div>
@@ -41,10 +41,10 @@
           <!-- 1 -->
           <div class="cp-div" v-for="item in addList" :key="item.num">
             <div class="img-box">
-              <img class="wid-per-100 wid-het" :src="item.path" />
+              <img class="wid-per-100 wid-het" :src="item.productPicture" />
             </div>
             <div class="flex jst-c">
-              <div>{{ item.name }}</div>
+              <div>{{ item.productName }}</div>
               <div v-if="item.show" class="plus-item" @click="selectCoffeeItem(item)">＋</div>
               <div v-else class="plus-item-hide" @click="selectCoffeeItem(item)">－</div>
             </div>
@@ -52,7 +52,7 @@
         </div>
         <!-- button -->
         <div class="pdt-22">
-          <div class="btn-shop" @click="addShopCar">添加至购物车</div>
+          <div class="btn-shop" @click="addShopCar">添加至购物车 ￥ {{ priceTotal }}</div>
         </div>
       </div>
     </div>
@@ -60,6 +60,8 @@
 </template>
 
 <script>
+import { alldata, addOrderInfo, getProductInfo } from "@/http/api/homeapi.js"
+
 export default {
   name: 'special',
   data(){
@@ -67,139 +69,202 @@ export default {
       imgList: [
         {
           num: 1,
-          name: "哥伦比亚咖啡豆",
-          path: '../src/assets/images/sepacial/beag.jpg',
+          productName: "哥伦比亚咖啡豆",
+          productPicture: '../src/assets/images/sepacial/beag.jpg',
           show: true,
+          price: 5,
         },
         {
           num: 2,
-          name: "埃塞俄比亚咖啡豆",
-          path: '../src/assets/images/sepacial/beaa.png',
+          productName: "埃塞俄比亚咖啡豆",
+          productPicture: '../src/assets/images/sepacial/beaa.png',
           show: true,
+          price: 5,
         },
         {
           num: 3,
-          name: "肯尼亚咖啡豆",
-          path: './src/assets/images/sepacial/beak.png',
+          productName: "肯尼亚咖啡豆",
+          productPicture: './src/assets/images/sepacial/beak.png',
           show: true,
+          price: 5,
         },
         {
           num: 4,
-          name: "苏门答腊咖啡豆",
-          path: '../src/assets/images/sepacial/beas.png',
+          productName: "苏门答腊咖啡豆",
+          productPicture: '../src/assets/images/sepacial/beas.png',
           show: true,
+          price: 5,
         },
         {
           num: 5,
-          name: "意式烘焙咖啡豆",
-          path: '../src/assets/images/sepacial/beay.png',
+          productName: "意式烘焙咖啡豆",
+          productPicture: '../src/assets/images/sepacial/beay.png',
           show: true,
+          price: 5,
         },
       ],
       makeList: [
         {
           num: 1,
-          name: "滴滤",
-          path: '../src/assets/images/sepacial/dlv.png',
+          productName: "滴滤",
+          productPicture: '../src/assets/images/sepacial/dlv.png',
           show: true,
+          price: 5,
         },
         {
           num: 2,
-          name: "冷萃",
-          path: '../src/assets/images/sepacial/lc.png',
+          productName: "冷萃",
+          productPicture: '../src/assets/images/sepacial/lc.png',
           show: true,
+          price: 5,
         },
         {
           num: 3,
-          name: "深度烘焙",
-          path: './src/assets/images/sepacial/sd.png',
+          productName: "深度烘焙",
+          productPicture: './src/assets/images/sepacial/sd.png',
           show: true,
+          price: 5,
         },
         {
           num: 4,
-          name: "手工调制",
-          path: '../src/assets/images/sepacial/sg.png',
+          productName: "手工调制",
+          productPicture: '../src/assets/images/sepacial/sg.png',
           show: true,
+          price: 5,
         },
         {
           num: 5,
-          name: "中度烘焙",
-          path: '../src/assets/images/sepacial/zd.png',
+          productName: "中度烘焙",
+          productPicture: '../src/assets/images/sepacial/zd.png',
           show: true,
+          price: 5,
         },
       ],
       addList: [
         {
           num: 1,
-          name: "抹茶",
-          path: '../src/assets/images/sepacial/mocha.png',
+          productName: "抹茶",
+          productPicture: '../src/assets/images/sepacial/mocha.png',
           show: true,
+          price: 5,
         },
         {
           num: 2,
-          name: "奶盖",
-          path: '../src/assets/images/sepacial/naigai.png',
+          productName: "奶盖",
+          productPicture: '../src/assets/images/sepacial/naigai.png',
           show: true,
+          price: 5,
         },
         {
           num: 3,
-          name: "奶油",
-          path: './src/assets/images/sepacial/naiyou.png',
+          productName: "奶油",
+          productPicture: './src/assets/images/sepacial/naiyou.png',
           show: true,
+          price: 5,
         },
         {
           num: 4,
-          name: "牛奶",
-          path: '../src/assets/images/sepacial/niunai.png',
+          productName: "牛奶",
+          productPicture: '../src/assets/images/sepacial/niunai.png',
           show: true,
+          price: 5,
         },
         {
           num: 5,
-          name: "椰汁",
-          path: '../src/assets/images/sepacial/yezhi.png',
+          productName: "椰汁",
+          productPicture: '../src/assets/images/sepacial/yezhi.png',
           show: true,
+          price: 5,
         },
       ],
       coffeeBeanValue: [],
       makeCOFValue: [],
       addItemValue: [],
+      priceTotal: 0,
     }
   },
   methods:{
     selectCoffeeBean(item){
       item.show = !item.show
-      if(this.coffeeBeanValue.indexOf(item.name)<0){
-        this.coffeeBeanValue.push(item.name);
+      if(this.coffeeBeanValue.indexOf(item.productName)<0){
+        this.coffeeBeanValue.push(item.productName);
+        this.priceTotal = this.priceTotal+item.price;
       }else{
-        let a = this.coffeeBeanValue.indexOf(item.name);
+        let a = this.coffeeBeanValue.indexOf(item.productName);
         this.coffeeBeanValue.splice(a,1);
+        this.priceTotal = this.priceTotal-item.price;
       }
       console.log(this.coffeeBeanValue)
     },
     selectCoffeeMake(item){
       item.show = !item.show
-      if(this.makeCOFValue.indexOf(item.name)<0){
-        this.makeCOFValue.push(item.name);
+      if(this.makeCOFValue.indexOf(item.productName)<0){
+        this.makeCOFValue.push(item.productName);
+        this.priceTotal = this.priceTotal+item.price;
       }else{
-        let a = this.makeCOFValue.indexOf(item.name);
+        let a = this.makeCOFValue.indexOf(item.productName);
         this.makeCOFValue.splice(a,1);
+        this.priceTotal = this.priceTotal-item.price;
       }
       console.log(this.makeCOFValue)
     },
     selectCoffeeItem(item){
       item.show = !item.show
-      if(this.addItemValue.indexOf(item.name)<0){
-        this.addItemValue.push(item.name);
+      if(this.addItemValue.indexOf(item.productName)<0){
+        this.addItemValue.push(item.productName);
+        this.priceTotal = this.priceTotal+item.price;
       }else{
-        let a = this.addItemValue.indexOf(item.name);
+        let a = this.addItemValue.indexOf(item.productName);
         this.addItemValue.splice(a,1);
+        this.priceTotal = this.priceTotal-item.price;
       }
       console.log(this.addItemValue)
     },
     addShopCar(){
       let value = "";
       value = this.coffeeBeanValue.join(";")+";"+this.makeCOFValue.join(";")+";"+this.addItemValue.join(";")
-      console.log(value)
+      let form={
+        orderId: null,
+        productId: null,
+        productName: value,
+        productType: 6,
+        productPrice: this.priceTotal,
+        address: null,
+        productPicture: null,
+        orderStatus: null,
+        describe: null,
+        shopType: 2,
+        buyerId: null,
+        buyerName: null,
+        type: null,
+        status: "0",
+        createBy: null,
+        createTime: null,
+        updateBy: null,
+        updateTime: null,
+        remark: null,
+        productNum: 1
+      }
+      addOrderInfo(form).then(response => {
+        console.log('order',response)
+        if(response.code==200){
+          this.$message({
+            message: '已添加到购物车',
+            type: 'success'
+          });
+          this.tempForm = {}
+        }else{
+          this.$message({
+            message: '请先登录',
+            type: 'warning'
+          });
+          // window.location.href="http://localhost:8080/myAccount"
+        }
+        
+        this.dialogVisible = false;
+      }).catch(error => {
+        console.log('error',error)
+      })
     }
   }
 }

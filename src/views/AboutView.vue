@@ -18,12 +18,12 @@
           <!-- one coffee -->
           <div class="cp-div" v-for="item in coffeeList" :key="item.num">
             <div class="cf-pic">
-              <img class="wid-per-100 h-per100" :src="item.path" />
+              <img class="wid-per-100 h-per100" :src="item.productPicture" />
             </div>
             <div class="kf-bg">
-              <div class="cf-font">{{item.name}}</div>
+              <div class="cf-font">{{item.productName}}</div>
             </div>
-            <div class="plus" @click="showItemDialog">＋</div>
+            <div class="plus" @click="showItemDialog(item)">＋</div>
           </div>
 
         </div>
@@ -33,12 +33,12 @@
           <!-- one coffee -->
           <div class="cp-div" v-for="item in teaList" :key="item.num">
             <div class="cf-pic">
-              <img class="wid-per-100 het-per-100" :src="item.path" />
+              <img class="wid-per-100 het-per-100" :src="item.productPicture" />
             </div>
             <div class="kf-bg">
-              <div class="cf-font">{{item.name}}</div>
+              <div class="cf-font">{{item.productName}}</div>
             </div>
-            <div class="plus" @click="showItemDialog">＋</div>
+            <div class="plus" @click="showItemDialog(item)">＋</div>
           </div>
 
         </div>
@@ -48,12 +48,12 @@
           <!-- one coffee -->
           <div class="cp-div" v-for="item in sweetList" :key="item.num">
             <div class="cf-pic">
-              <img class="wid-per-100" :src="item.path" />
+              <img class="wid-per-100" :src="item.productPicture" />
             </div>
             <div class="kf-bg">
-              <div class="cf-font">{{item.name}}</div>
+              <div class="cf-font">{{item.productName}}</div>
             </div>
-            <div class="plus" @click="showItemDialog">＋</div>
+            <div class="plus" @click="showItemDialog(item)">＋</div>
           </div>
 
         </div>
@@ -63,10 +63,10 @@
           <!-- one coffee -->
           <div class="cp-div" v-for="item in prodList" :key="item.num">
             <div class="cf-pic">
-              <img class="wid-per-100" :src="item.path" />
+              <img class="wid-per-100" :src="item.productPicture" />
             </div>
             <div class="kf-bg">
-              <div class="cf-font">{{item.name}}</div>
+              <div class="cf-font">{{item.productName}}</div>
             </div>
             <div class="plus" @click="showItemDialog(item)">＋</div>
           </div>
@@ -77,12 +77,12 @@
           <!-- one coffee -->
           <div class="cp-div" v-for="item in itemList" :key="item.num">
             <div class="cf-pic">
-              <img class="wid-per-100 bord-r-p50" :src="item.path" />
+              <img class="wid-per-100 bord-r-p50" :src="item.productPicture" />
             </div>
             <div class="kf-bg">
-              <div class="cf-font">{{item.name}}</div>
+              <div class="cf-font">{{item.productName}}</div>
             </div>
-            <div class="plus" @click="showItemDialog">＋</div>
+            <div class="plus" @click="showItemDialog(item)">＋</div>
           </div>
         </div>
 
@@ -100,7 +100,7 @@
           <div class="intro-img">
           </div>
           <div>
-            <div class="cl-61">美式咖啡</div>
+            <div class="cl-61">{{ tempForm.productName }}</div>
             <div class="cl-61">简单即是美味，萃取经典浓缩咖啡，以水调和，香气浓郁漫溢，毫升数仅供参考，饮品量以实际为准。</div>
           </div>
         </div>
@@ -149,7 +149,7 @@
           <div>数量 <span @click="subtractOne">-</span>{{ getNumber }}<span @click="addOne">+</span></div>
           <!-- <el-button @click="dialogVisible = false">Cancel</el-button> -->
           <el-button type="primary" @click="addShopCar">
-            添加至购物车 ￥36
+            添加至购物车 ￥{{ carPay }}
           </el-button>
         </span>
       </template>
@@ -169,145 +169,186 @@ export default {
       coffeeList: [
         {
           num: 1,
-          name: "焦糖玛奇朵",
-          path: '../src/assets/images/production/coffee1.png',
-          productType: 1
+          productName: "焦糖玛奇朵",
+          productPicture: '../src/assets/images/production/coffee1.png',
+          productType: 1,
+          remark: '20'
         },
         {
           num: 2,
-          name: "冷萃冰咖啡",
-          path: '../src/assets/images/production/coffee2.png',
-          productType: 1
+          productName: "冷萃冰咖啡",
+          productPicture: '../src/assets/images/production/coffee2.png',
+          productType: 1,
+          remark: '20'
         },
         {
           num: 3,
-          name: "美式咖啡",
-          path: './src/assets/images/production/coffee3.png',
-          productType: 1
+          productName: "美式咖啡",
+          productPicture: './src/assets/images/production/coffee3.png',
+          productType: 1,
+          remark: '20'
         },
         {
           num: 4,
-          name: "绵云冷萃",
-          path: '../src/assets/images/production/coffee4.png',
+          productName: "绵云冷萃",
+          productPicture: '../src/assets/images/production/coffee4.png',
+          productType: 1,
+          remark: '20'
         },
         {
           num: 5,
-          name: "摩卡",
-          path: '../src/assets/images/production/coffee5.png',
-          productType: 1
+          productName: "摩卡",
+          productPicture: '../src/assets/images/production/coffee5.png',
+          productType: 1,
+          remark: '20'
         },
       ],
       teaList: [
         {
           num: 1,
-          name: "冰摇红茶",
-          path: '../src/assets/images/production/tea1.png',
-          productType: 2
+          productName: "冰摇红茶",
+          productPicture: '../src/assets/images/production/tea1.png',
+          productType: 2,
+          remark: '20'
         },
         {
           num: 2,
-          name: "红茶拿铁",
-          path: '../src/assets/images/production/tea2.png',
-          productType: 2
+          productName: "红茶拿铁",
+          productPicture: '../src/assets/images/production/tea2.png',
+          productType: 2,
+          remark: '20'
         },
         {
           num: 3,
-          name: "橘香花茶",
-          path: './src/assets/images/production/tea3.png',
-          productType: 2
+          productName: "橘香花茶",
+          productPicture: './src/assets/images/production/tea3.png',
+          productType: 2,
+          remark: '20'
         },
         {
           num: 4,
-          name: "梨子清茶",
-          path: '../src/assets/images/production/tea4.png',
-          productType: 2
+          productName: "梨子清茶",
+          productPicture: '../src/assets/images/production/tea4.png',
+          productType: 2,
+          remark: '20'
         },
         {
           num: 5,
-          name: "抹茶拿铁",
-          path: '../src/assets/images/production/tea5.png',
-          productType: 2
+          productName: "抹茶拿铁",
+          productPicture: '../src/assets/images/production/tea5.png',
+          productType: 2,
+          remark: '20'
         },
       ],
       sweetList: [
         {
           num: 1,
-          name: "经典瑞士卷",
-          path: '../src/assets/images/production/sweet1.png',
+          productName: "经典瑞士卷",
+          productPicture: '../src/assets/images/production/sweet1.png',
+          productType: 3,
+          remark: '20'
         },
         {
           num: 2,
-          name: "蓝莓麦芬",
-          path: '../src/assets/images/production/sweet2.png',
+          productName: "蓝莓麦芬",
+          productPicture: '../src/assets/images/production/sweet2.png',
+          productType: 3,
+          remark: '20'
         },
         {
           num: 3,
-          name: "巧克力蛋糕",
-          path: './src/assets/images/production/sweet3.png',
+          productName: "巧克力蛋糕",
+          productPicture: './src/assets/images/production/sweet3.png',
+          productType: 3,
+          remark: '20'
         },
         {
           num: 4,
-          name: "全麦核桃麦芬",
-          path: '../src/assets/images/production/sweet4.png',
+          productName: "全麦核桃麦芬",
+          productPicture: '../src/assets/images/production/sweet4.png',
+          productType: 3,
+          remark: '20'
         },
         {
           num: 5,
-          name: "提拉米苏",
-          path: '../src/assets/images/production/sweet5.png',
+          productName: "提拉米苏",
+          productPicture: '../src/assets/images/production/sweet5.png',
+          productType: 3,
+          remark: '20'
         },
       ],
       prodList: [
         {
           num: 1,
-          name: "哥伦比亚咖啡豆",
-          path: '../src/assets/images/production/bea1.png',
+          productName: "哥伦比亚咖啡豆",
+          productPicture: '../src/assets/images/production/bea1.png',
+          productType: 4,
+          remark: '20'
         },
         {
           num: 2,
-          name: "埃塞俄比亚咖啡豆",
-          path: '../src/assets/images/production/bea2.png',
+          productName: "埃塞俄比亚咖啡豆",
+          productPicture: '../src/assets/images/production/bea2.png',
+          productType: 4,
+          remark: '20'
         },
         {
           num: 3,
-          name: "肯尼亚咖啡豆",
-          path: './src/assets/images/production/bea3.png',
+          productName: "肯尼亚咖啡豆",
+          productPicture: './src/assets/images/production/bea3.png',
+          productType: 4,
+          remark: '20'
         },
         {
           num: 4,
-          name: "苏门答腊咖啡豆",
-          path: '../src/assets/images/production/bea4.png',
+          productName: "苏门答腊咖啡豆",
+          productPicture: '../src/assets/images/production/bea4.png',
+          productType: 4,
+          remark: '20'
         },
         {
           num: 5,
-          name: "意式烘焙咖啡豆",
-          path: '../src/assets/images/production/bea5.png',
+          productName: "意式烘焙咖啡豆",
+          productPicture: '../src/assets/images/production/bea5.png',
+          productType: 4,
+          remark: '20'
         },
       ],
       itemList: [
         {
           num: 1,
-          name: "白瓷杯",
-          path: '../src/assets/images/production/item1.png',
+          productName: "白瓷杯",
+          productPicture: '../src/assets/images/production/item1.png',
+          productType: 5,
+          remark: '20'
         },
         {
           num: 2,
-          name: "橙色随手杯",
-          path: '../src/assets/images/production/item2.png',
+          productName: "橙色随手杯",
+          productPicture: '../src/assets/images/production/item2.png',
+          productType: 5,
+          remark: '20'
         },
         {
           num: 3,
-          name: "粉色随手杯",
-          path: './src/assets/images/production/item3.png',
+          productName: "粉色随手杯",
+          productPicture: './src/assets/images/production/item3.png',
+          productType: 5,
+          remark: '20'
         },
         {
           num: 4,
-          name: "黑色随手杯",
-          path: '../src/assets/images/production/item4.png',
+          productName: "黑色随手杯",
+          productPicture: '../src/assets/images/production/item4.png',
+          productType: 5,
+          remark: '20'
         },
         {
           num: 5,
-          name: "蓝色随手杯",
-          path: '../src/assets/images/production/item5.png',
+          productName: "蓝色随手杯",
+          productPicture: '../src/assets/images/production/item5.png',
+          productType: 5,
+          remark: '20'
         },
       ],
       isSize: 1,
@@ -319,7 +360,10 @@ export default {
       selectIceValue: '正常冰',
       selectMulkValue: '脱脂牛奶',
       getNumber: 1,
-      tempForm:{}
+      tempForm:{},
+      bottlePrice: 0,
+      milkPrice: 6,
+      carPay: 0,
     }
   },
   setup(){
@@ -341,7 +385,7 @@ export default {
       }
     }
     onMounted(()=>{
-      methods.requestall()
+      // methods.requestall()
     })
     return{
       ...methods
@@ -360,12 +404,18 @@ export default {
       switch(num){
         case 1:
           this.selectSizeValue="小杯 320ml";
+          this.bottlePrice = 0;
+          this.carPay = parseInt(this.tempForm.remark)+this.bottlePrice+this.milkPrice;
           break;
         case 2:
           this.selectSizeValue="中杯 480ml";
+          this.bottlePrice = 3;
+          this.carPay = parseInt(this.tempForm.remark)+this.bottlePrice+this.milkPrice;
           break;
         case 3:
           this.selectSizeValue="大杯 600ml";
+          this.bottlePrice = 5;
+          this.carPay = parseInt(this.tempForm.remark)+this.bottlePrice+this.milkPrice;
           break;
       }
       console.log(this.selectSizeValue)
@@ -417,12 +467,18 @@ export default {
       switch(num){
         case 1:
           this.selectMulkValue="脱脂牛奶";
+          this.milkPrice = 6;
+          this.carPay = parseInt(this.tempForm.remark)+this.bottlePrice+this.milkPrice;
           break;
         case 2:
           this.selectMulkValue="全脂牛奶";
+          this.milkPrice = 0;
+          this.carPay = parseInt(this.tempForm.remark)+this.bottlePrice+this.milkPrice;
           break;
         case 3:
           this.selectMulkValue="燕麦奶";
+          this.milkPrice = 10;
+          this.carPay = parseInt(this.tempForm.remark)+this.bottlePrice+this.milkPrice;
           break;
       }
     },
@@ -436,25 +492,24 @@ export default {
       this.selectSweetValue = '无糖'
       this.selectIceValue = '正常冰'
       this.selectMulkValue = '脱脂牛奶'
-      this.getNumber = 1
-      this.tempForm={
-        productType: item.productType
-      }
+      this.getNumber = 1;
+      this.tempForm = item;
+      this.carPay = parseInt(this.tempForm.remark) +6;
     },
     addShopCar(){
       let value = "";
-      value = this.selectSizeValue + ";" +this.selectSweetValue + ";"+this.selectIceValue + ";"+this.selectMulkValue + ";";
+      value = this.tempForm.productName + " | " + this.selectSizeValue + ";" +this.selectSweetValue + ";"+this.selectIceValue + ";"+this.selectMulkValue + ";";
       let form={
         orderId: null,
-        productId: null,
+        productId: this.tempForm.productId,
         productName: value,
-        productType: 1,
-        productPrice: 32,
+        productType: this.tempForm.productType,
+        productPrice: this.carPay,
         address: null,
         productPicture: null,
         orderStatus: null,
         describe: null,
-        shopType: null,
+        shopType: 1,
         buyerId: null,
         buyerName: null,
         type: null,
@@ -463,7 +518,7 @@ export default {
         createTime: null,
         updateBy: null,
         updateTime: null,
-        remark: null,
+        remark: this.tempForm.remark,
         productNum: this.getNumber
       }
       addOrderInfo(form).then(response => {
@@ -473,6 +528,7 @@ export default {
             message: '已添加到购物车',
             type: 'success'
           });
+          this.tempForm = {}
         }else{
           this.$message({
             message: '请先登录',
@@ -482,7 +538,7 @@ export default {
         }
         
         this.dialogVisible = false;
-      }).catch((error)=>{
+      }).catch(error => {
         console.log('error',error)
       })
       console.log(value)
@@ -503,6 +559,24 @@ export default {
       }
       getProductInfo(form).then(response => {
         if(response.code==200){
+          let apidata = response.rows;
+          apidata.forEach(element => {
+            if(element.productType==1){
+              this.coffeeList.push(element)
+            }
+            if(element.productType==2){
+              this.teaList.push(element)
+            }
+            if(element.productType==3){
+              this.sweetList.push(element)
+            }
+            if(element.productType==4){
+              this.prodList.push(element)
+            }
+            if(element.productType==5){
+              this.itemList.push(element)
+            }
+          });
           this.$message({
             message: '查找成功',
             type: 'success'
@@ -513,7 +587,7 @@ export default {
             type: 'warning'
           });
         }
-      }).catch((error)=>{
+      }).catch(error => {
         console.log('error',error)
       })
     },

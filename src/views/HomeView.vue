@@ -33,10 +33,10 @@ export default{
       </el-carousel>
     </div>
     <div class="wd-per-100">
-      <img src="../assets/images/home1.png"/>
+      <img src="../assets/images/home3.png"/>
     </div>
     <div class="wd-per-100">
-      <img src="../assets/images/home2.PNG"/>
+      <img src="../assets/images/home4.PNG"/>
     </div>
   </div>
 </template>
