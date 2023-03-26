@@ -148,9 +148,15 @@
         <span class="dialog-footer footer-dig">
           <div>数量 <span @click="subtractOne">-</span>{{ getNumber }}<span @click="addOne">+</span></div>
           <!-- <el-button @click="dialogVisible = false">Cancel</el-button> -->
-          <el-button type="primary" @click="addShopCar">
-            添加至购物车 ￥{{ carPay }}
-          </el-button>
+          <div>
+            <el-button type="primary" style="background-color: #d2b261;" @click="setStar">
+              收藏
+            </el-button>
+            <el-button type="primary" @click="addShopCar">
+              添加至购物车 ￥{{ carPay }}
+            </el-button>
+          </div>
+          
         </span>
       </template>
     </el-dialog>
@@ -159,7 +165,7 @@
 
 <script>
 import { reactive,onMounted} from "vue";
-import { alldata, addOrderInfo, getProductInfo } from "@/http/api/homeapi.js"
+import { alldata, addOrderInfo, getProductInfo,addCollectInfo } from "@/http/api/homeapi.js"
 
 export default {
   name: "about",
@@ -590,6 +596,47 @@ export default {
       }).catch(error => {
         console.log('error',error)
       })
+    },
+    // 收藏
+    setStar(){
+      let value = "";
+      value = this.tempForm.productName + " | " + this.selectSizeValue + ";" +this.selectSweetValue + ";"+this.selectIceValue + ";"+this.selectMulkValue + ";";
+      let form={
+        collectId: null,
+        productId: this.tempForm.productId,
+        productName: value,
+        productType: this.tempForm.productType,
+        productPrice:  this.carPay,
+        productPicture: null,
+        describe: null,
+        shopType: null,
+        collecterId: null,
+        collecterName: null,
+        type: null,
+        status: "0",
+        createBy: null,
+        createTime: null,
+        updateBy: null,
+        updateTime: null,
+        remark: this.tempForm.remark
+      }
+      addCollectInfo(form).then(response =>{
+        if(response.code==200){
+          this.$message({
+            message: '已添加收藏',
+            type: 'success'
+          });
+          this.tempForm = {}
+        }else{
+          this.$message({
+            message: '请先登录',
+            type: 'warning'
+          });
+          this.$router.push("/myAccount");
+          // window.location.href="http://localhost:8080/myAccount"
+        }
+        this.dialogVisible = false;
+      }).catch()
     },
   },
 }
