@@ -33,7 +33,7 @@
           <!-- one coffee -->
           <div class="cp-div" v-for="item in teaList" :key="item.num">
             <div class="cf-pic">
-              <img class="wid-per-100 het-per-100" :src="item.productPicture" />
+              <img class="wid-per-100 het-per-100" :src="'http://localhost/dev-api'+item.productPicture" />
             </div>
             <div class="kf-bg">
               <div class="cf-font">{{item.productName}}</div>
