@@ -2,7 +2,7 @@ import axios from "../axios";
  
 export const alldata=(data)=>{
   return axios({
-    url: 'http://localhost:8088/system/OrderInfo/list',
+    url: 'http://localhost:8088/system/ShopCart/list',
     method:'get',
     params: data
   })
@@ -11,7 +11,7 @@ export const alldata=(data)=>{
 // 新增订单管理
 export function addOrderInfo(data) {
   return axios({
-    url: 'http://localhost:8088/system/OrderInfo',
+    url: 'http://localhost:8088/system/ShopCart',
     method: 'post',
     data: data
   })
