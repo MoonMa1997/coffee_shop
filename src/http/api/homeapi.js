@@ -36,5 +36,14 @@ export function addCollectInfo(data) {
   })
 }
  
+
+// 新增评论管理
+export function addCommentInfo(data) {
+  return axios({
+    url: 'http://localhost:8088/system/CommentInfo',
+    method: 'post',
+    data: data
+  })
+}
  
 export default {alldata}

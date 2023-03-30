@@ -101,7 +101,7 @@
           </div>
           <div>
             <div class="cl-61">{{ tempForm.productName }}</div>
-            <div class="cl-61">简单即是美味，萃取经典浓缩咖啡，以水调和，香气浓郁漫溢，毫升数仅供参考，饮品量以实际为准。</div>
+            <div class="cl-61">{{tempForm.describe}}</div>
           </div>
         </div>
         <!-- 类型 -->
@@ -173,189 +173,189 @@ export default {
     return{
       dialogVisible : false,
       coffeeList: [
-        {
-          num: 1,
-          productName: "焦糖玛奇朵",
-          productPicture: '../src/assets/images/production/coffee1.png',
-          productType: 1,
-          remark: '20'
-        },
-        {
-          num: 2,
-          productName: "冷萃冰咖啡",
-          productPicture: '../src/assets/images/production/coffee2.png',
-          productType: 1,
-          remark: '20'
-        },
-        {
-          num: 3,
-          productName: "美式咖啡",
-          productPicture: './src/assets/images/production/coffee3.png',
-          productType: 1,
-          remark: '20'
-        },
-        {
-          num: 4,
-          productName: "绵云冷萃",
-          productPicture: '../src/assets/images/production/coffee4.png',
-          productType: 1,
-          remark: '20'
-        },
-        {
-          num: 5,
-          productName: "摩卡",
-          productPicture: '../src/assets/images/production/coffee5.png',
-          productType: 1,
-          remark: '20'
-        },
+        // {
+        //   num: 1,
+        //   productName: "焦糖玛奇朵",
+        //   productPicture: '../src/assets/images/production/coffee1.png',
+        //   productType: 1,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 2,
+        //   productName: "冷萃冰咖啡",
+        //   productPicture: '../src/assets/images/production/coffee2.png',
+        //   productType: 1,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 3,
+        //   productName: "美式咖啡",
+        //   productPicture: './src/assets/images/production/coffee3.png',
+        //   productType: 1,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 4,
+        //   productName: "绵云冷萃",
+        //   productPicture: '../src/assets/images/production/coffee4.png',
+        //   productType: 1,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 5,
+        //   productName: "摩卡",
+        //   productPicture: '../src/assets/images/production/coffee5.png',
+        //   productType: 1,
+        //   remark: '20'
+        // },
       ],
       teaList: [
-        {
-          num: 1,
-          productName: "冰摇红茶",
-          productPicture: '../src/assets/images/production/tea1.png',
-          productType: 2,
-          remark: '20'
-        },
-        {
-          num: 2,
-          productName: "红茶拿铁",
-          productPicture: '../src/assets/images/production/tea2.png',
-          productType: 2,
-          remark: '20'
-        },
-        {
-          num: 3,
-          productName: "橘香花茶",
-          productPicture: './src/assets/images/production/tea3.png',
-          productType: 2,
-          remark: '20'
-        },
-        {
-          num: 4,
-          productName: "梨子清茶",
-          productPicture: '../src/assets/images/production/tea4.png',
-          productType: 2,
-          remark: '20'
-        },
-        {
-          num: 5,
-          productName: "抹茶拿铁",
-          productPicture: '../src/assets/images/production/tea5.png',
-          productType: 2,
-          remark: '20'
-        },
+        // {
+        //   num: 1,
+        //   productName: "冰摇红茶",
+        //   productPicture: '../src/assets/images/production/tea1.png',
+        //   productType: 2,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 2,
+        //   productName: "红茶拿铁",
+        //   productPicture: '../src/assets/images/production/tea2.png',
+        //   productType: 2,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 3,
+        //   productName: "橘香花茶",
+        //   productPicture: './src/assets/images/production/tea3.png',
+        //   productType: 2,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 4,
+        //   productName: "梨子清茶",
+        //   productPicture: '../src/assets/images/production/tea4.png',
+        //   productType: 2,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 5,
+        //   productName: "抹茶拿铁",
+        //   productPicture: '../src/assets/images/production/tea5.png',
+        //   productType: 2,
+        //   remark: '20'
+        // },
       ],
       sweetList: [
-        {
-          num: 1,
-          productName: "经典瑞士卷",
-          productPicture: '../src/assets/images/production/sweet1.png',
-          productType: 3,
-          remark: '20'
-        },
-        {
-          num: 2,
-          productName: "蓝莓麦芬",
-          productPicture: '../src/assets/images/production/sweet2.png',
-          productType: 3,
-          remark: '20'
-        },
-        {
-          num: 3,
-          productName: "巧克力蛋糕",
-          productPicture: './src/assets/images/production/sweet3.png',
-          productType: 3,
-          remark: '20'
-        },
-        {
-          num: 4,
-          productName: "全麦核桃麦芬",
-          productPicture: '../src/assets/images/production/sweet4.png',
-          productType: 3,
-          remark: '20'
-        },
-        {
-          num: 5,
-          productName: "提拉米苏",
-          productPicture: '../src/assets/images/production/sweet5.png',
-          productType: 3,
-          remark: '20'
-        },
+        // {
+        //   num: 1,
+        //   productName: "经典瑞士卷",
+        //   productPicture: '../src/assets/images/production/sweet1.png',
+        //   productType: 3,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 2,
+        //   productName: "蓝莓麦芬",
+        //   productPicture: '../src/assets/images/production/sweet2.png',
+        //   productType: 3,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 3,
+        //   productName: "巧克力蛋糕",
+        //   productPicture: './src/assets/images/production/sweet3.png',
+        //   productType: 3,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 4,
+        //   productName: "全麦核桃麦芬",
+        //   productPicture: '../src/assets/images/production/sweet4.png',
+        //   productType: 3,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 5,
+        //   productName: "提拉米苏",
+        //   productPicture: '../src/assets/images/production/sweet5.png',
+        //   productType: 3,
+        //   remark: '20'
+        // },
       ],
       prodList: [
-        {
-          num: 1,
-          productName: "哥伦比亚咖啡豆",
-          productPicture: '../src/assets/images/production/bea1.png',
-          productType: 4,
-          remark: '20'
-        },
-        {
-          num: 2,
-          productName: "埃塞俄比亚咖啡豆",
-          productPicture: '../src/assets/images/production/bea2.png',
-          productType: 4,
-          remark: '20'
-        },
-        {
-          num: 3,
-          productName: "肯尼亚咖啡豆",
-          productPicture: './src/assets/images/production/bea3.png',
-          productType: 4,
-          remark: '20'
-        },
-        {
-          num: 4,
-          productName: "苏门答腊咖啡豆",
-          productPicture: '../src/assets/images/production/bea4.png',
-          productType: 4,
-          remark: '20'
-        },
-        {
-          num: 5,
-          productName: "意式烘焙咖啡豆",
-          productPicture: '../src/assets/images/production/bea5.png',
-          productType: 4,
-          remark: '20'
-        },
+        // {
+        //   num: 1,
+        //   productName: "哥伦比亚咖啡豆",
+        //   productPicture: '../src/assets/images/production/bea1.png',
+        //   productType: 4,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 2,
+        //   productName: "埃塞俄比亚咖啡豆",
+        //   productPicture: '../src/assets/images/production/bea2.png',
+        //   productType: 4,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 3,
+        //   productName: "肯尼亚咖啡豆",
+        //   productPicture: './src/assets/images/production/bea3.png',
+        //   productType: 4,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 4,
+        //   productName: "苏门答腊咖啡豆",
+        //   productPicture: '../src/assets/images/production/bea4.png',
+        //   productType: 4,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 5,
+        //   productName: "意式烘焙咖啡豆",
+        //   productPicture: '../src/assets/images/production/bea5.png',
+        //   productType: 4,
+        //   remark: '20'
+        // },
       ],
       itemList: [
-        {
-          num: 1,
-          productName: "白瓷杯",
-          productPicture: '../src/assets/images/production/item1.png',
-          productType: 5,
-          remark: '20'
-        },
-        {
-          num: 2,
-          productName: "橙色随手杯",
-          productPicture: '../src/assets/images/production/item2.png',
-          productType: 5,
-          remark: '20'
-        },
-        {
-          num: 3,
-          productName: "粉色随手杯",
-          productPicture: './src/assets/images/production/item3.png',
-          productType: 5,
-          remark: '20'
-        },
-        {
-          num: 4,
-          productName: "黑色随手杯",
-          productPicture: '../src/assets/images/production/item4.png',
-          productType: 5,
-          remark: '20'
-        },
-        {
-          num: 5,
-          productName: "蓝色随手杯",
-          productPicture: '../src/assets/images/production/item5.png',
-          productType: 5,
-          remark: '20'
-        },
+        // {
+        //   num: 1,
+        //   productName: "白瓷杯",
+        //   productPicture: '../src/assets/images/production/item1.png',
+        //   productType: 5,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 2,
+        //   productName: "橙色随手杯",
+        //   productPicture: '../src/assets/images/production/item2.png',
+        //   productType: 5,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 3,
+        //   productName: "粉色随手杯",
+        //   productPicture: './src/assets/images/production/item3.png',
+        //   productType: 5,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 4,
+        //   productName: "黑色随手杯",
+        //   productPicture: '../src/assets/images/production/item4.png',
+        //   productType: 5,
+        //   remark: '20'
+        // },
+        // {
+        //   num: 5,
+        //   productName: "蓝色随手杯",
+        //   productPicture: '../src/assets/images/production/item5.png',
+        //   productType: 5,
+        //   remark: '20'
+        // },
       ],
       isSize: 1,
       isSweet:1,

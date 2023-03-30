@@ -14,17 +14,17 @@
                 我们收到将尽快处理
             </p>
             <div>
-                <div class="mgb-8">购买区域：
+                <!-- <div class="mgb-8">购买区域：
                     <el-select-v2
                         v-model="value"
                         :options="options"
                         placeholder="请选择"
                     />
-                </div>
+                </div> -->
                 <div class="mgb-8">
                     消费日期：
                     <el-date-picker
-                        v-model="value1"
+                        v-model="form.createBy"
                         type="date"
                         placeholder="请选择"
                         size="default"
@@ -38,35 +38,38 @@
                 </div>
                 <div class="mgb-8">
                     姓名：
-                    <el-input class="w-220" v-model="input" placeholder="请输入" />
+                    <el-input class="w-220" v-model="form.userName" placeholder="请输入" />
                     性别：
-                    <el-radio-group v-model="radio2" class="ml-4">
+                    <el-radio-group v-model="form.createBy" class="ml-4">
                         <el-radio label="1">男</el-radio>
                         <el-radio label="2">女</el-radio>
                     </el-radio-group>
                 </div>
                 <div class="mgb-8">
                     联系电话：
-                    <el-input class="w-220" v-model="input" placeholder="请输入" />
+                    <el-input class="w-220" v-model="form.remark" placeholder="请输入" />
                     联系邮箱：
-                    <el-input class="w-220" v-model="input" placeholder="请输入" />
+                    <el-input class="w-220" v-model="input1" placeholder="请输入" />
                 </div>
                 <div>
                     相关说明：
                     <el-input
                         class="w-600"
-                        v-model="textarea"
+                        v-model="form.commentContent"
                         maxlength="30"
                         placeholder="请输入"
                         show-word-limit
                         type="textarea"
                     />
                 </div>
+                <div style="background: rgb(117 228 112);width: 60px;text-align: center;" @click="addComent">提交</div>
             </div>
         </div>
     </div>
 </template>
 <script>
+import { addCommentInfo } from "@/http/api/homeapi.js"
+
 export default {
     name: "contactUs",
     data(){
@@ -74,6 +77,7 @@ export default {
             textarea: "",
             radio2: "1",
             input: '',
+            input1: '',
             value2: null,
             value1: null,
             value: null,
@@ -97,7 +101,45 @@ export default {
                     value: 5,
                     label: 'e'
                 },
-            ]
+            ],
+            form: {
+                commentId: null,
+                commentContent: null,
+                userId: null,
+                userName: null,
+                productId: null,
+                type: null,
+                status: "0",
+                createBy: null,
+                createTime: null,
+                updateBy: null,
+                updateTime: null,
+                remark: null
+            }
+        }
+    },
+    methods:{
+        addComent(){
+            addCommentInfo(this.form).then(response => {
+                this.$message({
+                    message: '添加成功',
+                    type: 'success'
+                });
+                this.form= {
+                    commentId: null,
+                    commentContent: null,
+                    userId: null,
+                    userName: null,
+                    productId: null,
+                    type: null,
+                    status: "0",
+                    createBy: null,
+                    createTime: null,
+                    updateBy: null,
+                    updateTime: null,
+                    remark: null
+                }
+            });
         }
     }
 }
