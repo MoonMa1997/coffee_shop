@@ -521,7 +521,7 @@ export default {
         address: null,
         productPicture: null,
         orderStatus: null,
-        describe: null,
+        description: null,
         shopType: 1,
         buyerId: localStorage.getItem('roleId'),
         buyerName: localStorage.getItem('roleName'),
