@@ -18,7 +18,7 @@
           <!-- one coffee -->
           <div class="cp-div" v-for="item in coffeeList" :key="item.num">
             <div class="cf-pic">
-              <img class="wid-per-100 h-per100" :src="item.productPicture" />
+              <img class="wid-per-100 h-per100" :src="'http://localhost/dev-api'+item.productPicture" />
             </div>
             <div class="kf-bg">
               <div class="cf-font">{{item.productName}}</div>
@@ -48,7 +48,7 @@
           <!-- one coffee -->
           <div class="cp-div" v-for="item in sweetList" :key="item.num">
             <div class="cf-pic">
-              <img class="wid-per-100" :src="item.productPicture" />
+              <img class="wid-per-100" :src="'http://localhost/dev-api'+item.productPicture" />
             </div>
             <div class="kf-bg">
               <div class="cf-font">{{item.productName}}</div>
@@ -63,7 +63,7 @@
           <!-- one coffee -->
           <div class="cp-div" v-for="item in prodList" :key="item.num">
             <div class="cf-pic">
-              <img class="wid-per-100" :src="item.productPicture" />
+              <img class="wid-per-100" :src="'http://localhost/dev-api'+item.productPicture" />
             </div>
             <div class="kf-bg">
               <div class="cf-font">{{item.productName}}</div>
@@ -77,7 +77,7 @@
           <!-- one coffee -->
           <div class="cp-div" v-for="item in itemList" :key="item.num">
             <div class="cf-pic">
-              <img class="wid-per-100 bord-r-p50" :src="item.productPicture" />
+              <img class="wid-per-100 bord-r-p50" :src="'http://localhost/dev-api'+item.productPicture" />
             </div>
             <div class="kf-bg">
               <div class="cf-font">{{item.productName}}</div>
