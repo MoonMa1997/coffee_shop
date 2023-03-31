@@ -101,7 +101,7 @@
           </div>
           <div>
             <div class="cl-61">{{ tempForm.productName }}</div>
-            <div class="cl-61">{{tempForm.describe}}</div>
+            <div class="cl-61">{{tempForm.description}}</div>
           </div>
         </div>
         <!-- 类型 -->
