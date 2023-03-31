@@ -38,5 +38,13 @@ export function register(data) {
     data: data
   })
 }
+
+// 获取用户详细信息
+export function getInfo() {
+  return axios({
+    url: 'http://localhost:8088/getInfo',
+    method: 'get'
+  })
+}
  
 export default {alldata}

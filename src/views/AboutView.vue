@@ -166,6 +166,7 @@
 <script>
 import { reactive,onMounted} from "vue";
 import { alldata, addOrderInfo, getProductInfo,addCollectInfo } from "@/http/api/homeapi.js"
+import { getInfo } from "@/http/api/login.js"
 
 export default {
   name: "about",
@@ -398,8 +399,14 @@ export default {
     }
   },
   mounted() {
+    
+    getInfo().then(res => {
+      const user = res.user
+      localStorage.setItem('roleId', res.user.roles[0].roleId);
+      localStorage.setItem('roleName', res.user.nickName);
+    }).catch(error => {
+    });
     this.getList();
-    console.log(`the component is now mounted.`)
   },
   methods: {
     increment() {
@@ -516,8 +523,8 @@ export default {
         orderStatus: null,
         describe: null,
         shopType: 1,
-        buyerId: null,
-        buyerName: null,
+        buyerId: localStorage.getItem('roleId'),
+        buyerName: localStorage.getItem('roleName'),
         type: null,
         status: "0",
         createBy: null,

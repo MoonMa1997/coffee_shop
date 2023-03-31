@@ -33,7 +33,7 @@
 
 <script>
 import { method } from 'lodash';
-import { login,register } from "@/http/api/login.js"
+import { login,register,getInfo } from "@/http/api/login.js"
 import Cookies from 'js-cookie'
 
 export default {
