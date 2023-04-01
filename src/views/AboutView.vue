@@ -98,6 +98,7 @@
         <!-- 介绍 -->
         <div class="flex bdt-1">
           <div class="intro-img">
+            <img style="width: 100%;height: 100%;" :src="'http://localhost/dev-api'+ tempForm.productPicture"/>
           </div>
           <div>
             <div class="cl-61">{{ tempForm.productName }}</div>
@@ -404,6 +405,7 @@ export default {
       const user = res.user
       localStorage.setItem('roleId', res.user.roles[0].roleId);
       localStorage.setItem('roleName', res.user.nickName);
+      localStorage.setItem('userId', res.user.userId);
     }).catch(error => {
     });
     this.getList();
@@ -519,11 +521,11 @@ export default {
         productType: this.tempForm.productType,
         productPrice: this.carPay,
         address: null,
-        productPicture: null,
+        productPicture: this.tempForm.productPicture,
         orderStatus: null,
-        description: null,
+        description: this.tempForm.description,
         shopType: 1,
-        buyerId: localStorage.getItem('roleId'),
+        buyerId: localStorage.getItem('userId'),
         buyerName: localStorage.getItem('roleName'),
         type: null,
         status: "0",
@@ -614,11 +616,11 @@ export default {
         productName: value,
         productType: this.tempForm.productType,
         productPrice:  this.carPay,
-        productPicture: null,
-        describe: null,
+        productPicture: this.tempForm.productPicture,
+        description: this.tempForm.description,
         shopType: null,
-        collecterId: null,
-        collecterName: null,
+        collecterId: localStorage.getItem('userId'),
+        collecterName: localStorage.getItem('roleName'),
         type: null,
         status: "0",
         createBy: null,
@@ -783,7 +785,7 @@ export default {
   height: 100%;
 }
 .intro-img{
-  background-image: url(../assets/images/coffee.png);
+  /* background-image: url(../assets/images/coffee.png); */
   background-size: 70px 70px;
   border-radius: 50%;
   background-repeat: no-repeat;

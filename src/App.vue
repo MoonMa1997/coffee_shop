@@ -12,6 +12,9 @@ export default{
     changeHeader(item) {
       this.navClick = item
       //FIXME:此处进行判断进行一个 路由跳转
+    },
+    goToHome(){
+      this.$router.push('/');
     }
   }
 }
@@ -32,7 +35,10 @@ export default{
     <!-- nav -->
     <div class="height100 bgc-609 col-fe">
       <div class="route-div">
-        <div class="mrgr-10 col-fe strong">壹杯咖啡</div>
+        <div class="mrgr-10 col-fe strong" style="display: flex;" @click="goToHome">
+          <img style="width: 60px;height: 70px;margin-top: 10px;" src="../src/assets/images/logoshop.png" />
+          <div style="font-size: 19px;font-weight: 900;">壹杯咖啡</div>
+        </div>
         <RouterLink to="/" class="mrgr-10 col-fe" :class="'home' == navClick ? 'focusOn' : '' " @click="changeHeader('home')">首页</RouterLink>
         <RouterLink to="/about" class="mrgr-10 col-fe" :class="'production' == navClick ? 'focusOn' : '' " @click="changeHeader('production')">产品系列</RouterLink>
         <RouterLink to="/specialCustom" class="mrgr-10 col-fe" :class="'special' == navClick ? 'focusOn' : '' " @click="changeHeader('special')">专属定制</RouterLink>
@@ -45,7 +51,10 @@ export default{
     <RouterView />
     <!-- footer -->
     <div class="footer pd-30-0">
-      <div>壹杯咖啡</div>
+      <div>
+        <!-- <img src="../src/assets/images/logoshop.png" /> -->
+        <div>壹杯咖啡</div>
+      </div>
       <div class="flex jst-c">
         <div>微博</div>
         <div class="mrgl-20">微信</div>
@@ -58,7 +67,6 @@ export default{
     </div>
 
 </template>
-
 <style scoped>
 a:hover{
   font-weight: 800;
