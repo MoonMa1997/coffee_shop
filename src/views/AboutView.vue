@@ -695,7 +695,7 @@ export default {
   font-size: larger;
   font-weight: 700;
   padding: 3px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 .mrgt-30{
   margin-top: 30px;
