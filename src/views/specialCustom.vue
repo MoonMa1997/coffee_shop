@@ -3,7 +3,9 @@
     <div class="wd-per-100 flex">
       <!-- 左侧图片 -->
       <div class="wid-per-20">
-        <div></div>
+        <div>
+          <img src="../assets/images/bgleft.png" />
+        </div>
       </div>
       <!-- 右侧定制 -->
       <div class="wid-per-80 pd-5 ov-y">
